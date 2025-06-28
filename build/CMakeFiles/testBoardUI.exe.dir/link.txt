@@ -1,0 +1,1 @@
+/usr/bin/c++ -rdynamic CMakeFiles/testBoardUI.exe.dir/app/testBoardUI.cpp.o CMakeFiles/testBoardUI.exe.dir/src/boardUI.cpp.o -o ../bin/testBoardUI.exe  /usr/lib/x86_64-linux-gnu/libsfml-graphics.so.2.5.1 /usr/lib/x86_64-linux-gnu/libsfml-window.so.2.5.1 /usr/lib/x86_64-linux-gnu/libsfml-system.so.2.5.1 

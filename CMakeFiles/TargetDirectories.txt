@@ -1,0 +1,3 @@
+/home/kiwi/documents/cpp/chess/CMakeFiles/testTintoretto.exe.dir
+/home/kiwi/documents/cpp/chess/CMakeFiles/edit_cache.dir
+/home/kiwi/documents/cpp/chess/CMakeFiles/rebuild_cache.dir
