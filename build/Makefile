@@ -117,48 +117,48 @@ depend:
 .PHONY : depend
 
 #=============================================================================
-# Target rules for targets named testBoardUI.exe
+# Target rules for targets named testStockfish.exe
 
 # Build rule for target.
-testBoardUI.exe: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 testBoardUI.exe
-.PHONY : testBoardUI.exe
+testStockfish.exe: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 testStockfish.exe
+.PHONY : testStockfish.exe
 
 # fast build rule for target.
-testBoardUI.exe/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/testBoardUI.exe.dir/build.make CMakeFiles/testBoardUI.exe.dir/build
-.PHONY : testBoardUI.exe/fast
+testStockfish.exe/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/testStockfish.exe.dir/build.make CMakeFiles/testStockfish.exe.dir/build
+.PHONY : testStockfish.exe/fast
 
-app/testBoardUI.o: app/testBoardUI.cpp.o
-.PHONY : app/testBoardUI.o
+app/testStockfish.o: app/testStockfish.cpp.o
+.PHONY : app/testStockfish.o
 
 # target to build an object file
-app/testBoardUI.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/testBoardUI.exe.dir/build.make CMakeFiles/testBoardUI.exe.dir/app/testBoardUI.cpp.o
-.PHONY : app/testBoardUI.cpp.o
+app/testStockfish.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/testStockfish.exe.dir/build.make CMakeFiles/testStockfish.exe.dir/app/testStockfish.cpp.o
+.PHONY : app/testStockfish.cpp.o
 
-app/testBoardUI.i: app/testBoardUI.cpp.i
-.PHONY : app/testBoardUI.i
+app/testStockfish.i: app/testStockfish.cpp.i
+.PHONY : app/testStockfish.i
 
 # target to preprocess a source file
-app/testBoardUI.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/testBoardUI.exe.dir/build.make CMakeFiles/testBoardUI.exe.dir/app/testBoardUI.cpp.i
-.PHONY : app/testBoardUI.cpp.i
+app/testStockfish.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/testStockfish.exe.dir/build.make CMakeFiles/testStockfish.exe.dir/app/testStockfish.cpp.i
+.PHONY : app/testStockfish.cpp.i
 
-app/testBoardUI.s: app/testBoardUI.cpp.s
-.PHONY : app/testBoardUI.s
+app/testStockfish.s: app/testStockfish.cpp.s
+.PHONY : app/testStockfish.s
 
 # target to generate assembly for a file
-app/testBoardUI.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/testBoardUI.exe.dir/build.make CMakeFiles/testBoardUI.exe.dir/app/testBoardUI.cpp.s
-.PHONY : app/testBoardUI.cpp.s
+app/testStockfish.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/testStockfish.exe.dir/build.make CMakeFiles/testStockfish.exe.dir/app/testStockfish.cpp.s
+.PHONY : app/testStockfish.cpp.s
 
 src/boardUI.o: src/boardUI.cpp.o
 .PHONY : src/boardUI.o
 
 # target to build an object file
 src/boardUI.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/testBoardUI.exe.dir/build.make CMakeFiles/testBoardUI.exe.dir/src/boardUI.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/testStockfish.exe.dir/build.make CMakeFiles/testStockfish.exe.dir/src/boardUI.cpp.o
 .PHONY : src/boardUI.cpp.o
 
 src/boardUI.i: src/boardUI.cpp.i
@@ -166,7 +166,7 @@ src/boardUI.i: src/boardUI.cpp.i
 
 # target to preprocess a source file
 src/boardUI.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/testBoardUI.exe.dir/build.make CMakeFiles/testBoardUI.exe.dir/src/boardUI.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/testStockfish.exe.dir/build.make CMakeFiles/testStockfish.exe.dir/src/boardUI.cpp.i
 .PHONY : src/boardUI.cpp.i
 
 src/boardUI.s: src/boardUI.cpp.s
@@ -174,7 +174,7 @@ src/boardUI.s: src/boardUI.cpp.s
 
 # target to generate assembly for a file
 src/boardUI.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/testBoardUI.exe.dir/build.make CMakeFiles/testBoardUI.exe.dir/src/boardUI.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/testStockfish.exe.dir/build.make CMakeFiles/testStockfish.exe.dir/src/boardUI.cpp.s
 .PHONY : src/boardUI.cpp.s
 
 # Help Target
@@ -185,10 +185,10 @@ help:
 	@echo "... depend"
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
-	@echo "... testBoardUI.exe"
-	@echo "... app/testBoardUI.o"
-	@echo "... app/testBoardUI.i"
-	@echo "... app/testBoardUI.s"
+	@echo "... testStockfish.exe"
+	@echo "... app/testStockfish.o"
+	@echo "... app/testStockfish.i"
+	@echo "... app/testStockfish.s"
 	@echo "... src/boardUI.o"
 	@echo "... src/boardUI.i"
 	@echo "... src/boardUI.s"

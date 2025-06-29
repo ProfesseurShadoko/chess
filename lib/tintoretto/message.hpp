@@ -12,7 +12,9 @@
  * Message("This is an info message");
  * Message("This is a success message", "#");
  * Message("This is a warning message", "?");
- * Message("This is an error message", "!");`
+ * Message("This is an error message", "!");
+ * Message("This is a sent message", ">");
+ * Message("This is a received message", "<");
  * ```
  */
 class Message : public MutableClass {
@@ -33,6 +35,10 @@ class Message : public MutableClass {
                 prefix = cstr("[!] ").red();
             } else if (typ == "?") {
                 prefix = cstr("[?] ").yellow();
+            } else if (typ == ">") {
+                prefix = cstr("[>] ").green();
+            } else if (typ == "<") {
+                prefix = cstr("[<] ").yellow();
             } else {
                 throw std::invalid_argument("Invalid typ argument. Must be Must be one of '#', '!', '?', 'i'.");
             }

@@ -5,6 +5,10 @@ cmake_minimum_required(VERSION 3.0)
 # define project name
 project(chess)
 
+# require c++17 to have filesystem
+set(CMAKE_CXX_STANDARD 17)
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
+
 # include libraries
 include_directories(lib/eigen) # Eigen is a header only library => no need for target_link_libraries
 include_directories(lib/tintoretto)
