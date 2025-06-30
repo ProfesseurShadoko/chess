@@ -9,7 +9,6 @@ set(CMAKE_DEPENDS_LANGUAGES
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
   "/home/kiwi/documents/cpp/chess/app/testStockfish.cpp" "CMakeFiles/testStockfish.exe.dir/app/testStockfish.cpp.o" "gcc" "CMakeFiles/testStockfish.exe.dir/app/testStockfish.cpp.o.d"
-  "/home/kiwi/documents/cpp/chess/src/boardUI.cpp" "CMakeFiles/testStockfish.exe.dir/src/boardUI.cpp.o" "gcc" "CMakeFiles/testStockfish.exe.dir/src/boardUI.cpp.o.d"
   )
 
 # Targets to which this target links.

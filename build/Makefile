@@ -153,30 +153,6 @@ app/testStockfish.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/testStockfish.exe.dir/build.make CMakeFiles/testStockfish.exe.dir/app/testStockfish.cpp.s
 .PHONY : app/testStockfish.cpp.s
 
-src/boardUI.o: src/boardUI.cpp.o
-.PHONY : src/boardUI.o
-
-# target to build an object file
-src/boardUI.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/testStockfish.exe.dir/build.make CMakeFiles/testStockfish.exe.dir/src/boardUI.cpp.o
-.PHONY : src/boardUI.cpp.o
-
-src/boardUI.i: src/boardUI.cpp.i
-.PHONY : src/boardUI.i
-
-# target to preprocess a source file
-src/boardUI.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/testStockfish.exe.dir/build.make CMakeFiles/testStockfish.exe.dir/src/boardUI.cpp.i
-.PHONY : src/boardUI.cpp.i
-
-src/boardUI.s: src/boardUI.cpp.s
-.PHONY : src/boardUI.s
-
-# target to generate assembly for a file
-src/boardUI.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/testStockfish.exe.dir/build.make CMakeFiles/testStockfish.exe.dir/src/boardUI.cpp.s
-.PHONY : src/boardUI.cpp.s
-
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -189,9 +165,6 @@ help:
 	@echo "... app/testStockfish.o"
 	@echo "... app/testStockfish.i"
 	@echo "... app/testStockfish.s"
-	@echo "... src/boardUI.o"
-	@echo "... src/boardUI.i"
-	@echo "... src/boardUI.s"
 .PHONY : help
 
 

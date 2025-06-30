@@ -83,36 +83,20 @@ CMakeFiles/testStockfish.exe.dir/app/testStockfish.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/testStockfish.exe.dir/app/testStockfish.cpp.s"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/kiwi/documents/cpp/chess/app/testStockfish.cpp -o CMakeFiles/testStockfish.exe.dir/app/testStockfish.cpp.s
 
-CMakeFiles/testStockfish.exe.dir/src/boardUI.cpp.o: CMakeFiles/testStockfish.exe.dir/flags.make
-CMakeFiles/testStockfish.exe.dir/src/boardUI.cpp.o: ../src/boardUI.cpp
-CMakeFiles/testStockfish.exe.dir/src/boardUI.cpp.o: CMakeFiles/testStockfish.exe.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/kiwi/documents/cpp/chess/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/testStockfish.exe.dir/src/boardUI.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/testStockfish.exe.dir/src/boardUI.cpp.o -MF CMakeFiles/testStockfish.exe.dir/src/boardUI.cpp.o.d -o CMakeFiles/testStockfish.exe.dir/src/boardUI.cpp.o -c /home/kiwi/documents/cpp/chess/src/boardUI.cpp
-
-CMakeFiles/testStockfish.exe.dir/src/boardUI.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/testStockfish.exe.dir/src/boardUI.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/kiwi/documents/cpp/chess/src/boardUI.cpp > CMakeFiles/testStockfish.exe.dir/src/boardUI.cpp.i
-
-CMakeFiles/testStockfish.exe.dir/src/boardUI.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/testStockfish.exe.dir/src/boardUI.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/kiwi/documents/cpp/chess/src/boardUI.cpp -o CMakeFiles/testStockfish.exe.dir/src/boardUI.cpp.s
-
 # Object files for target testStockfish.exe
 testStockfish_exe_OBJECTS = \
-"CMakeFiles/testStockfish.exe.dir/app/testStockfish.cpp.o" \
-"CMakeFiles/testStockfish.exe.dir/src/boardUI.cpp.o"
+"CMakeFiles/testStockfish.exe.dir/app/testStockfish.cpp.o"
 
 # External object files for target testStockfish.exe
 testStockfish_exe_EXTERNAL_OBJECTS =
 
 ../bin/testStockfish.exe: CMakeFiles/testStockfish.exe.dir/app/testStockfish.cpp.o
-../bin/testStockfish.exe: CMakeFiles/testStockfish.exe.dir/src/boardUI.cpp.o
 ../bin/testStockfish.exe: CMakeFiles/testStockfish.exe.dir/build.make
 ../bin/testStockfish.exe: /usr/lib/x86_64-linux-gnu/libsfml-graphics.so.2.5.1
 ../bin/testStockfish.exe: /usr/lib/x86_64-linux-gnu/libsfml-window.so.2.5.1
 ../bin/testStockfish.exe: /usr/lib/x86_64-linux-gnu/libsfml-system.so.2.5.1
 ../bin/testStockfish.exe: CMakeFiles/testStockfish.exe.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/kiwi/documents/cpp/chess/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Linking CXX executable ../bin/testStockfish.exe"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/kiwi/documents/cpp/chess/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX executable ../bin/testStockfish.exe"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/testStockfish.exe.dir/link.txt --verbose=$(VERBOSE)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold "Running testStockfish.exe after build"
 	/usr/bin/cmake -E echo 

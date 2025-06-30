@@ -1,2 +1,5 @@
 # ignore the executables in bin
 bin/*
+
+# ignore what is in the trash
+trash/*
