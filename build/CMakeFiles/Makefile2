@@ -63,7 +63,7 @@ CMAKE_BINARY_DIR = /home/kiwi/documents/cpp/chess/build
 # Directory level rules for the build root directory
 
 # The main recursive "all" target.
-all: CMakeFiles/testStockfish.exe.dir/all
+all: CMakeFiles/testUCIWrapper.exe.dir/all
 .PHONY : all
 
 # The main recursive "preinstall" target.
@@ -71,34 +71,34 @@ preinstall:
 .PHONY : preinstall
 
 # The main recursive "clean" target.
-clean: CMakeFiles/testStockfish.exe.dir/clean
+clean: CMakeFiles/testUCIWrapper.exe.dir/clean
 .PHONY : clean
 
 #=============================================================================
-# Target rules for target CMakeFiles/testStockfish.exe.dir
+# Target rules for target CMakeFiles/testUCIWrapper.exe.dir
 
 # All Build rule for target.
-CMakeFiles/testStockfish.exe.dir/all:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/testStockfish.exe.dir/build.make CMakeFiles/testStockfish.exe.dir/depend
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/testStockfish.exe.dir/build.make CMakeFiles/testStockfish.exe.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/kiwi/documents/cpp/chess/build/CMakeFiles --progress-num=1,2 "Built target testStockfish.exe"
-.PHONY : CMakeFiles/testStockfish.exe.dir/all
+CMakeFiles/testUCIWrapper.exe.dir/all:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/testUCIWrapper.exe.dir/build.make CMakeFiles/testUCIWrapper.exe.dir/depend
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/testUCIWrapper.exe.dir/build.make CMakeFiles/testUCIWrapper.exe.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/kiwi/documents/cpp/chess/build/CMakeFiles --progress-num=1,2 "Built target testUCIWrapper.exe"
+.PHONY : CMakeFiles/testUCIWrapper.exe.dir/all
 
 # Build rule for subdir invocation for target.
-CMakeFiles/testStockfish.exe.dir/rule: cmake_check_build_system
+CMakeFiles/testUCIWrapper.exe.dir/rule: cmake_check_build_system
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/kiwi/documents/cpp/chess/build/CMakeFiles 2
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/testStockfish.exe.dir/all
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/testUCIWrapper.exe.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/kiwi/documents/cpp/chess/build/CMakeFiles 0
-.PHONY : CMakeFiles/testStockfish.exe.dir/rule
+.PHONY : CMakeFiles/testUCIWrapper.exe.dir/rule
 
 # Convenience name for target.
-testStockfish.exe: CMakeFiles/testStockfish.exe.dir/rule
-.PHONY : testStockfish.exe
+testUCIWrapper.exe: CMakeFiles/testUCIWrapper.exe.dir/rule
+.PHONY : testUCIWrapper.exe
 
 # clean rule for target.
-CMakeFiles/testStockfish.exe.dir/clean:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/testStockfish.exe.dir/build.make CMakeFiles/testStockfish.exe.dir/clean
-.PHONY : CMakeFiles/testStockfish.exe.dir/clean
+CMakeFiles/testUCIWrapper.exe.dir/clean:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/testUCIWrapper.exe.dir/build.make CMakeFiles/testUCIWrapper.exe.dir/clean
+.PHONY : CMakeFiles/testUCIWrapper.exe.dir/clean
 
 #=============================================================================
 # Special targets to cleanup operation of make.

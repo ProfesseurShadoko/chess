@@ -2,6 +2,8 @@
 
 
 int main() {
+    // Print current working directory
+    Message("Current working directory: " + cstr(getcwd(nullptr, 0)).cyan());
 
     // let's initialize two UCI players
     UCIWrapper stockfish("../bin/stockfish");

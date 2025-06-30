@@ -5,6 +5,10 @@
 #include <string>
 #include <vector>
 #include <stdexcept>
+#include <tintoretto.hpp>
+#include <sstream>
+#include <iostream>
+#include <algorithm> // for std::remove
 
 /**
  * @class BoardUI
@@ -22,6 +26,10 @@ class BoardUI {
         std::string enPassantTarget;
         int halfMoveClock; // number of moves since last capture / pawn
         int fullMoveClock;
+
+        std::vector<std::string> markedSquares; // squares that are marked for some reason, for instance to highlight a move
+        std::vector<int> markedSquaresColors; // colors for marked squares (0 green, 1 red, 2 cyan, 3 purple)
+
 
         /**
          * @brief Initilizes the board to an empty state.
@@ -268,6 +276,18 @@ class BoardUI {
                     play("h1f1", true);
                     Message::print("[castle]");
                 }
+                if (move == "e1c1") {
+                    play("a1d1", true);
+                    Message::print("[castle]");
+                }
+                if (move == "e8g8") {
+                    play("h8f8", true);
+                    Message::print("[castle]");
+                }
+                if (move == "e8c8") {
+                    play("a8d8", true);
+                    Message::print("[castle]");
+                }
                 
                 if (piece == 'k') {
                     // Black king moved, disable both black castling rights
@@ -363,6 +383,11 @@ class BoardUI {
             board[from_row][from_col] = '.';
             board[to_row][to_col] = piece;
 
+            // mark arrival square and departure square in green
+            unmarkAll(); // clear previous marks
+            mark(std::string(1, 'a' + from_col) + std::to_string(from_row + 1), 0); // green
+            mark(std::string(1, 'a' + to_col) + std::to_string(to_row + 1), 0); // green
+
         }
 
         /**
@@ -392,8 +417,28 @@ class BoardUI {
                 row_string = std::to_string(row + 1) + ". |";
 
                 for (int col = 0; col < 8; col++) {
-                    square_string = letterToPiece(board[row][col]);
-                    row_string += " " + square_string + "  |";
+                    square_string = letterToPiece(board[row][col]) + " ";
+
+                    // let's highlight the square if it is marked
+                    // find square string from row and col
+                    std::string square = std::string(1, 'a' + col) + std::to_string(row + 1);
+                    bool found = false;
+                    for (int i = 0; i < markedSquares.size(); i++) {
+                        if (markedSquares[i] == square) {
+                            found = true;
+                            // add color to square_string
+                            switch (markedSquaresColors[i]) {
+                                case 0: square_string = cstr("<").green() + square_string + cstr(">").green(); break; // green
+                                case 1: square_string = cstr("<").red() + square_string + cstr(">").red(); break; // red
+                                case 2: square_string = cstr("<").cyan() + square_string + cstr(">").cyan(); break; // cyan
+                                case 3: square_string = cstr("<").purple() + square_string + cstr(">").purple(); break; // purple   
+                                
+                                default: break; // should not happen anyway
+                            }
+                        }
+                    }
+                    if (!found) square_string = " " + square_string + " "; // no color, just a space
+                    row_string += square_string + "|";
                 }
                 out += row_string + "\n";
                 out += hborder + "\n";
@@ -410,6 +455,26 @@ class BoardUI {
         friend std::ostream& operator<<(std::ostream& os, const BoardUI& boardUI) {
             os << boardUI.toString();
             return os;
+        }
+
+
+        // ---------------------- //
+        // !-- Marked Squares --! //
+        // ---------------------- //
+        void mark(const std::string& square, int color = 0) {
+            // Check if square is valid
+            if (square.length() != 2 || square[0] < 'a' || square[0] > 'h' || square[1] < '1' || square[1] > '8') {
+                throw std::invalid_argument("Invalid square: " + square);
+            }
+
+            // Add the square to the marked squares
+            markedSquares.push_back(square);
+            markedSquaresColors.push_back(color);
+        }
+
+        void unmarkAll() {
+            markedSquares.clear();
+            markedSquaresColors.clear();
         }
 };
 

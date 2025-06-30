@@ -9,7 +9,6 @@ set(CMAKE_DEPENDS_LANGUAGES
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
   "/home/kiwi/documents/cpp/chess/app/testTintoretto.cpp" "CMakeFiles/testTintoretto.exe.dir/app/testTintoretto.cpp.o" "gcc" "CMakeFiles/testTintoretto.exe.dir/app/testTintoretto.cpp.o.d"
-  "/home/kiwi/documents/cpp/chess/src/boardUI.cpp" "CMakeFiles/testTintoretto.exe.dir/src/boardUI.cpp.o" "gcc" "CMakeFiles/testTintoretto.exe.dir/src/boardUI.cpp.o.d"
   )
 
 # Targets to which this target links.

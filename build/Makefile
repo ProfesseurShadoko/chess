@@ -117,41 +117,41 @@ depend:
 .PHONY : depend
 
 #=============================================================================
-# Target rules for targets named testStockfish.exe
+# Target rules for targets named testUCIWrapper.exe
 
 # Build rule for target.
-testStockfish.exe: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 testStockfish.exe
-.PHONY : testStockfish.exe
+testUCIWrapper.exe: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 testUCIWrapper.exe
+.PHONY : testUCIWrapper.exe
 
 # fast build rule for target.
-testStockfish.exe/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/testStockfish.exe.dir/build.make CMakeFiles/testStockfish.exe.dir/build
-.PHONY : testStockfish.exe/fast
+testUCIWrapper.exe/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/testUCIWrapper.exe.dir/build.make CMakeFiles/testUCIWrapper.exe.dir/build
+.PHONY : testUCIWrapper.exe/fast
 
-app/testStockfish.o: app/testStockfish.cpp.o
-.PHONY : app/testStockfish.o
+app/testUCIWrapper.o: app/testUCIWrapper.cpp.o
+.PHONY : app/testUCIWrapper.o
 
 # target to build an object file
-app/testStockfish.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/testStockfish.exe.dir/build.make CMakeFiles/testStockfish.exe.dir/app/testStockfish.cpp.o
-.PHONY : app/testStockfish.cpp.o
+app/testUCIWrapper.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/testUCIWrapper.exe.dir/build.make CMakeFiles/testUCIWrapper.exe.dir/app/testUCIWrapper.cpp.o
+.PHONY : app/testUCIWrapper.cpp.o
 
-app/testStockfish.i: app/testStockfish.cpp.i
-.PHONY : app/testStockfish.i
+app/testUCIWrapper.i: app/testUCIWrapper.cpp.i
+.PHONY : app/testUCIWrapper.i
 
 # target to preprocess a source file
-app/testStockfish.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/testStockfish.exe.dir/build.make CMakeFiles/testStockfish.exe.dir/app/testStockfish.cpp.i
-.PHONY : app/testStockfish.cpp.i
+app/testUCIWrapper.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/testUCIWrapper.exe.dir/build.make CMakeFiles/testUCIWrapper.exe.dir/app/testUCIWrapper.cpp.i
+.PHONY : app/testUCIWrapper.cpp.i
 
-app/testStockfish.s: app/testStockfish.cpp.s
-.PHONY : app/testStockfish.s
+app/testUCIWrapper.s: app/testUCIWrapper.cpp.s
+.PHONY : app/testUCIWrapper.s
 
 # target to generate assembly for a file
-app/testStockfish.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/testStockfish.exe.dir/build.make CMakeFiles/testStockfish.exe.dir/app/testStockfish.cpp.s
-.PHONY : app/testStockfish.cpp.s
+app/testUCIWrapper.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/testUCIWrapper.exe.dir/build.make CMakeFiles/testUCIWrapper.exe.dir/app/testUCIWrapper.cpp.s
+.PHONY : app/testUCIWrapper.cpp.s
 
 # Help Target
 help:
@@ -161,10 +161,10 @@ help:
 	@echo "... depend"
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
-	@echo "... testStockfish.exe"
-	@echo "... app/testStockfish.o"
-	@echo "... app/testStockfish.i"
-	@echo "... app/testStockfish.s"
+	@echo "... testUCIWrapper.exe"
+	@echo "... app/testUCIWrapper.o"
+	@echo "... app/testUCIWrapper.i"
+	@echo "... app/testUCIWrapper.s"
 .PHONY : help
 
 

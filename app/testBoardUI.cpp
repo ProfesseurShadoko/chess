@@ -95,4 +95,14 @@ int main() {
     Message::print("Looking at board constructed from previous fen:");
     std::cout << board2 << std::endl;
 
+    Test mark_test("Testing Marking Squares");
+    BoardUI board3;
+    board3.fromFEN(BoardUI::startpos);
+    board3.mark("e4", 0); // green
+    board3.mark("e7", 1); // red
+    board3.mark("f3", 2); // cyan
+    board3.mark("f2", 3); // purple
+    std::cout << board3 << std::endl;
+    mark_test.complete(true);
+
 }

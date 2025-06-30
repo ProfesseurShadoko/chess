@@ -83,36 +83,20 @@ CMakeFiles/testBoardUI.exe.dir/app/testBoardUI.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/testBoardUI.exe.dir/app/testBoardUI.cpp.s"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/kiwi/documents/cpp/chess/app/testBoardUI.cpp -o CMakeFiles/testBoardUI.exe.dir/app/testBoardUI.cpp.s
 
-CMakeFiles/testBoardUI.exe.dir/src/boardUI.cpp.o: CMakeFiles/testBoardUI.exe.dir/flags.make
-CMakeFiles/testBoardUI.exe.dir/src/boardUI.cpp.o: ../src/boardUI.cpp
-CMakeFiles/testBoardUI.exe.dir/src/boardUI.cpp.o: CMakeFiles/testBoardUI.exe.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/kiwi/documents/cpp/chess/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/testBoardUI.exe.dir/src/boardUI.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/testBoardUI.exe.dir/src/boardUI.cpp.o -MF CMakeFiles/testBoardUI.exe.dir/src/boardUI.cpp.o.d -o CMakeFiles/testBoardUI.exe.dir/src/boardUI.cpp.o -c /home/kiwi/documents/cpp/chess/src/boardUI.cpp
-
-CMakeFiles/testBoardUI.exe.dir/src/boardUI.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/testBoardUI.exe.dir/src/boardUI.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/kiwi/documents/cpp/chess/src/boardUI.cpp > CMakeFiles/testBoardUI.exe.dir/src/boardUI.cpp.i
-
-CMakeFiles/testBoardUI.exe.dir/src/boardUI.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/testBoardUI.exe.dir/src/boardUI.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/kiwi/documents/cpp/chess/src/boardUI.cpp -o CMakeFiles/testBoardUI.exe.dir/src/boardUI.cpp.s
-
 # Object files for target testBoardUI.exe
 testBoardUI_exe_OBJECTS = \
-"CMakeFiles/testBoardUI.exe.dir/app/testBoardUI.cpp.o" \
-"CMakeFiles/testBoardUI.exe.dir/src/boardUI.cpp.o"
+"CMakeFiles/testBoardUI.exe.dir/app/testBoardUI.cpp.o"
 
 # External object files for target testBoardUI.exe
 testBoardUI_exe_EXTERNAL_OBJECTS =
 
 ../bin/testBoardUI.exe: CMakeFiles/testBoardUI.exe.dir/app/testBoardUI.cpp.o
-../bin/testBoardUI.exe: CMakeFiles/testBoardUI.exe.dir/src/boardUI.cpp.o
 ../bin/testBoardUI.exe: CMakeFiles/testBoardUI.exe.dir/build.make
 ../bin/testBoardUI.exe: /usr/lib/x86_64-linux-gnu/libsfml-graphics.so.2.5.1
 ../bin/testBoardUI.exe: /usr/lib/x86_64-linux-gnu/libsfml-window.so.2.5.1
 ../bin/testBoardUI.exe: /usr/lib/x86_64-linux-gnu/libsfml-system.so.2.5.1
 ../bin/testBoardUI.exe: CMakeFiles/testBoardUI.exe.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/kiwi/documents/cpp/chess/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Linking CXX executable ../bin/testBoardUI.exe"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/kiwi/documents/cpp/chess/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX executable ../bin/testBoardUI.exe"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/testBoardUI.exe.dir/link.txt --verbose=$(VERBOSE)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold "Running testBoardUI.exe after build"
 	/usr/bin/cmake -E echo 

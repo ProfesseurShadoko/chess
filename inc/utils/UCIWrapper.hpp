@@ -71,7 +71,7 @@ class UCIWrapper {
         
 
     public:
-        UCIWrapper(const std::string& path) {
+        UCIWrapper(const std::string& enginePath) : enginePath(enginePath), pid(-1) {
             if (pipe(to_child) == -1 || pipe(from_child) == -1) {
                 throw std::runtime_error("Failed to create pipes.");
             }

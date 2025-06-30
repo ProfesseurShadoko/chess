@@ -47,5 +47,24 @@ int main() {
     Test test2("Checking multiplication");
     test2.complete(2*2 == 3);
 
+    Message::par();
+    // let's try out highlighting
+    std::cout << cstr("This text is highlighted in green").h_green() << std::endl;
+    std::cout << cstr("This text is red highlighted in blue").h_blue().red() << std::endl;
+    Message("This might not work in some terminals, when text is highlighted some temrinals overwrite all text colors. VS code for instance.");
+
+
+    // let's print all colors one by one
+    Message::print("Printing all colors:");
+    Message::tab();
+    Message::print(cstr("Green").h_green());
+    Message::print(cstr("Red").h_red());
+    Message::print(cstr("Yellow").h_yellow().yellow());
+    Message::print(cstr("Yellow").h_yellow().yellow());
+
+    Message::print(cstr("Blue").h_blue());
+    Message::print(cstr("Purple").h_purple());
+    Message::print(cstr("Cyan").h_cyan());
+
     return 0;
 }

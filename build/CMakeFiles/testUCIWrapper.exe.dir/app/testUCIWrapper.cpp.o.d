@@ -1,7 +1,7 @@
 CMakeFiles/testUCIWrapper.exe.dir/app/testUCIWrapper.cpp.o: \
  /home/kiwi/documents/cpp/chess/app/testUCIWrapper.cpp \
  /usr/include/stdc-predef.h \
- /home/kiwi/documents/cpp/chess/inc/UCIWrapper.hpp \
+ /home/kiwi/documents/cpp/chess/inc/utils/UCIWrapper.hpp \
  /usr/include/c++/11/string \
  /usr/include/x86_64-linux-gnu/c++/11/bits/c++config.h \
  /usr/include/x86_64-linux-gnu/c++/11/bits/os_defines.h \
@@ -208,4 +208,20 @@ CMakeFiles/testUCIWrapper.exe.dir/app/testUCIWrapper.cpp.o: \
  /usr/include/x86_64-linux-gnu/bits/resource.h \
  /usr/include/x86_64-linux-gnu/bits/types/struct_rusage.h \
  /usr/include/c++/11/sstream /usr/include/c++/11/bits/sstream.tcc \
- /home/kiwi/documents/cpp/chess/inc/boardUI.hpp
+ /home/kiwi/documents/cpp/chess/inc/utils/boardUI.hpp \
+ /usr/include/c++/11/algorithm /usr/include/c++/11/bits/stl_algo.h \
+ /usr/include/c++/11/bits/algorithmfwd.h \
+ /usr/include/c++/11/bits/stl_heap.h \
+ /usr/include/c++/11/bits/stl_tempbuf.h \
+ /usr/include/c++/11/bits/uniform_int_dist.h \
+ /usr/include/c++/11/pstl/glue_algorithm_defs.h \
+ /usr/include/c++/11/functional /usr/include/c++/11/bits/std_function.h \
+ /usr/include/c++/11/unordered_map \
+ /usr/include/c++/11/ext/aligned_buffer.h \
+ /usr/include/c++/11/bits/hashtable.h \
+ /usr/include/c++/11/bits/hashtable_policy.h \
+ /usr/include/c++/11/bits/enable_special_members.h \
+ /usr/include/c++/11/bits/node_handle.h \
+ /usr/include/c++/11/bits/unordered_map.h \
+ /usr/include/c++/11/bits/erase_if.h \
+ /usr/include/c++/11/pstl/execution_defs.h
