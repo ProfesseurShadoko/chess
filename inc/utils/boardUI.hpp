@@ -15,7 +15,7 @@
  * An other class will be responsible for displaying the board on screen.
  */
 class BoardUI {
-    private:
+    public:
         std::vector<std::vector<char>> board; // 8x8 array to store the board state
         char activeColor;
         std::string castlingRights;

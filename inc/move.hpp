@@ -107,12 +107,18 @@ class Move {
             return getFigure(getPromotion()) != Figure::EMPTY;
         }
 
+        /**
+         * This returns false for enPassant
+         */
         bool isCapture() const {
             return getFigure(getCapture()) != Figure::EMPTY;
         }
 
+        /**
+         * If pawn moves diagonally but getCapture is empty
+         */
         bool isEnPassant() const {
-            return getFigure(getPiece()) == Figure::PAWN && getCol(getFrom()) != getCol(getTo()) && getFigure(getCapture()) == Figure::EMPTY;
+            return getFigure(getPiece()) == Figure::PAWN && getCol(getFrom()) != getCol(getTo()) && !isCapture();
         }
 
         bool isCastle() const {
