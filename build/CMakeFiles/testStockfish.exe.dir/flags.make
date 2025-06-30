@@ -4,7 +4,7 @@
 # compile CXX with /usr/bin/c++
 CXX_DEFINES = 
 
-CXX_INCLUDES = -I/home/kiwi/documents/cpp/chess/lib/eigen -I/home/kiwi/documents/cpp/chess/lib/tintoretto -I"/home/kiwi/documents/cpp/chess/(" -I/home/kiwi/documents/cpp/chess/inc -I"/home/kiwi/documents/cpp/chess/)"
+CXX_INCLUDES = -I/home/kiwi/documents/cpp/chess/lib/eigen -I/home/kiwi/documents/cpp/chess/lib/tintoretto -I"/home/kiwi/documents/cpp/chess/(" -I/home/kiwi/documents/cpp/chess/inc -I"/home/kiwi/documents/cpp/chess/)" -I/home/kiwi/documents/cpp/chess/inc/utils
 
 CXX_FLAGS = -std=gnu++17
 
