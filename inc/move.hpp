@@ -56,6 +56,21 @@ inline constexpr uint32_t getCol(Square square) {
 }
 
 
+struct UndoInfo {
+    // information about the previous position, usefull for the unplay method!
+    uint32_t castlingRights; // 4 bits for castling rights
+    Square enPassantSquare; // 7 bits for en passant square (0-64, 64 is no en passant, 65 is UndoInfo was not set)
+    uint32_t halfmoveClock; // 7 bits for halfmove clock (0-127, 128 is more than enough for 2*50 moves)
+    
+    UndoInfo() : castlingRights(0), enPassantSquare(65), halfmoveClock(0) {} // default constructor --> square being 64 --> UndoInfo not filled
+    UndoInfo(uint32_t castlingRights, Square enPassantSquare, uint32_t halfmoveClock)
+        : castlingRights(castlingRights), enPassantSquare(enPassantSquare), halfmoveClock(halfmoveClock) {}
+
+    bool isNull() const {return enPassantSquare == 65;}
+};
+
+
+
 
 // ------------ //
 // !-- Move --! //
@@ -69,12 +84,19 @@ class Move {
         // Next bits: captured piece (4 bits)
         // Next bits: promotion piece (4 bits)
         uint32_t move;
+        UndoInfo undoInfo; // information about the previous position, useful for the unplay method!
 
-        // TODO: replace everything below by bit operations
         Move(uint32_t move) : move(move) {}
 
         Move(Square from, Square to, Piece piece, Piece captured = makePiece(Color::WHITE, Figure::EMPTY), Piece promotion = makePiece(Color::WHITE,Figure::EMPTY)) {
             move = from << 18 | to << 12 | piece << 8 | captured << 4 | promotion; // << means move up!
+        }
+
+        void setUndoInfo(const UndoInfo& info) {
+            undoInfo = info;
+        }
+        void setUndoInfo(uint32_t castlingRights, Square enPassantSquare, uint32_t halfmoveClock) {
+            undoInfo = UndoInfo(castlingRights, enPassantSquare, halfmoveClock);
         }
 
         Square getFrom() const {
