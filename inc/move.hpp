@@ -11,6 +11,7 @@
 #include <cstdlib> // for abs
 #include <stdexcept> // for std::runtime_error
 #include <string>
+#include <memory> // for std::unique_ptr
 
 
 // ----------------------- //
@@ -39,13 +40,48 @@ inline constexpr Piece makePiece(Color color, Figure figure) {
     return static_cast<Piece>(static_cast<uint32_t>(color) | static_cast<uint32_t>(figure));
 }
 
+inline constexpr Piece makePiece(char c) {
+    Color color = (c >= 'a' && c <= 'z') ? Color::BLACK : Color::WHITE;
+    Figure figure = Figure::EMPTY;
+    switch (std::tolower(c)) {
+        case 'p': figure = Figure::PAWN; break;
+        case 'n': figure = Figure::KNIGHT; break;
+        case 'b': figure = Figure::BISHOP; break;
+        case 'r': figure = Figure::ROOK; break;
+        case 'q': figure = Figure::QUEEN; break;
+        case 'k': figure = Figure::KING; break;
+        case '.': figure = Figure::EMPTY; break; // empty square
+        default: throw std::runtime_error("Unknown piece character");
+    }
+    return makePiece(color, figure);
+}
+
 inline constexpr Color getColor(Piece piece) {
-    return static_cast<Color>(piece & 0x8); // 0x8 is the bit for color
+    return static_cast<Color>(piece & 0b1000); // 0x8 is the bit for color
 }
 
 inline constexpr Figure getFigure(Piece piece) {
-    return static_cast<Figure>(piece & 0x7); // 0x7 is the bits for figure
+    return static_cast<Figure>(piece & 0x0111); // 0x7 is the bits for figure
 } // 0x7 = 0b0111 --> mask all except the last 3 bits
+
+inline constexpr char getCharFromPiece(Piece piece) {
+    // returns the character representation of the piece, in lowercase for black pieces
+    char c = ' ';
+    switch (getFigure(piece)) {
+        case Figure::PAWN:   c = 'p'; break;
+        case Figure::KNIGHT: c = 'n'; break;
+        case Figure::BISHOP: c = 'b'; break;
+        case Figure::ROOK:   c = 'r'; break;
+        case Figure::QUEEN:  c = 'q'; break;
+        case Figure::KING:   c = 'k'; break;
+        case Figure::EMPTY:  c = '.'; break; // empty square
+    }
+    if (getColor(piece) == Color::WHITE) {
+        c = std::toupper(c); // convert to uppercase for white pieces
+    }
+    return c;
+}
+
 
 inline constexpr uint32_t getRow(Square square) {
     return square / 8;
@@ -53,6 +89,10 @@ inline constexpr uint32_t getRow(Square square) {
 
 inline constexpr uint32_t getCol(Square square) {
     return square % 8;
+}
+
+inline constexpr Color operator~(Color color) {
+    return static_cast<Color>(static_cast<uint32_t>(color) ^ 0b1000); // flip the color
 }
 
 
@@ -67,6 +107,9 @@ struct UndoInfo {
         : castlingRights(castlingRights), enPassantSquare(enPassantSquare), halfmoveClock(halfmoveClock) {}
 
     bool isNull() const {return enPassantSquare == 65;}
+
+    // we won't need to store the Zobrist key since we will update the key in place
+    // will play and unplay.
 };
 
 
@@ -84,19 +127,14 @@ class Move {
         // Next bits: captured piece (4 bits)
         // Next bits: promotion piece (4 bits)
         uint32_t move;
-        UndoInfo undoInfo; // information about the previous position, useful for the unplay method!
+        // UndoInfo undoInfo; // information about the previous position, useful for the unplay method!
+        // actually, UndoInfo is common to all moves for a given position, so let's rather attach it to
+        // the positition and not the move itself.
 
         Move(uint32_t move) : move(move) {}
 
         Move(Square from, Square to, Piece piece, Piece captured = makePiece(Color::WHITE, Figure::EMPTY), Piece promotion = makePiece(Color::WHITE,Figure::EMPTY)) {
             move = from << 18 | to << 12 | piece << 8 | captured << 4 | promotion; // << means move up!
-        }
-
-        void setUndoInfo(const UndoInfo& info) {
-            undoInfo = info;
-        }
-        void setUndoInfo(uint32_t castlingRights, Square enPassantSquare, uint32_t halfmoveClock) {
-            undoInfo = UndoInfo(castlingRights, enPassantSquare, halfmoveClock);
         }
 
         Square getFrom() const {
@@ -181,6 +219,8 @@ class Move {
             }
             return str;
         }
+
+        
 };
 
 #endif

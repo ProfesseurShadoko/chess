@@ -398,6 +398,7 @@ class BoardUI {
             return board;
         }
 
+
         /**
          * @brief Returns for the console the string representation of the board.
          */
