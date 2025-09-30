@@ -48,6 +48,151 @@ Square PositionBase::getNewEnPassantSquare(const Move& move) const {
     return newSquare;
 }
 
+void PositionBase::updatePieceCount(const Move& move) {
+    // Move is a capture
+    if (move.isCapture()) {
+        Color color = getColor(move.getCapture());
+        Figure figure = getFigure(move.getCapture());
+        pieceCount[static_cast<uint32_t>(color) >> 3][static_cast<uint32_t>(figure)]--;
+    }
+
+    // Move is a promotion
+    if (move.isPromotion()) {
+        Color color = getColor(move.getPiece());
+        Figure figure = getFigure(move.getPromotion());
+        // remove 1 pawn
+        pieceCount[static_cast<uint32_t>(color) >> 3][static_cast<uint32_t>(Figure::PAWN)]--;
+        // add the promoted piece
+        pieceCount[static_cast<uint32_t>(color) >> 3][static_cast<uint32_t>(figure)]++;
+    }
+
+    // Move is enPassant
+    if (move.isEnPassant()) {
+        Color color = getColor(move.getPiece());
+        // remove 1 pawn for opponent
+        pieceCount[static_cast<uint32_t>(~color) >> 3][static_cast<uint32_t>(Figure::PAWN)]--;
+    }
+}
+
+void PositionBase::restorePieceCount(const Move& move) {
+    // Move was capture
+    if (move.isCapture()) {
+        Color color = getColor(move.getCapture());
+        Figure figure = getFigure(move.getCapture());
+        pieceCount[static_cast<uint32_t>(color) >> 3][static_cast<uint32_t>(figure)]++; // put back the piece
+    }
+
+    if (move.isPromotion()) {
+        Color color = getColor(move.getPiece());
+        Figure figure = getFigure(move.getPromotion());
+        // put back 1 pawn
+        pieceCount[static_cast<uint32_t>(color) >> 3][static_cast<uint32_t>(Figure::PAWN)]++;
+        // remove the promoted piece
+        pieceCount[static_cast<uint32_t>(color) >> 3][static_cast<uint32_t>(figure)]--;
+    }
+
+    if (move.isEnPassant()) {
+        Color color = getColor(move.getPiece());
+        // put back 1 pawn for opponent
+        pieceCount[static_cast<uint32_t>(~color) >> 3][static_cast<uint32_t>(Figure::PAWN)]++;
+    }
+}
+
+
+void PositionBase::play(const Move& move, bool definitive) {
+    // first, handle everything that is not position representation
+    stateHistory.push_back(UndoInfo(castlingRights, enPassantSquare, halfmoveClock));
+    addToPositionHistory(zobristKey); // store the hash of the position before
+    moveHistory.push_back(move); // add the move to the history
+    updateHash(move); // update the hash with the move
+
+    // clear cache when possible
+    if (definitive) {
+        // we won't do unplay, so we can clear some of the history
+        stateHistory.clear(); // clear the state history since we won't unplay
+        moveHistory.clear(); // clear the move history since we won't unplay
+        if (move.isCapture() || getFigure(move.getPiece()) == Figure::PAWN) {
+            positionHistory.clear(); // wipe out the position history // we can't do it if not definitive because the unplay method deosn't restore past history
+        }
+    }
+
+    // update fullmoveClock
+    if (activeColor == Color::BLACK) {
+        fullmoveClock++;
+    }
+
+    // update halfmoveClock
+    if (move.isCapture() || getFigure(move.getPiece()) == Figure::PAWN) {
+        halfmoveClock = 0; // reset halfmove clock on capture or pawn move
+    } else {
+        halfmoveClock++;
+    }
+
+    // update castling rights
+    // if the king has moved
+    // if the king has moved
+    if (getFigure(move.getPiece()) == Figure::KING) {
+        if (activeColor == Color::WHITE) {
+            castlingRights &= 0b0011; // remove white castling rights
+        } else {
+            castlingRights &= 0b1100; // remove black castling rights
+        }
+    }
+    // if a piece has moved away from a1 or took something on a1
+    if (move.getFrom() == 0 || move.getTo() == 0) {
+        castlingRights &= 0b1011; // remove white queenside castling rights
+    }
+    if (move.getFrom() == 7 || move.getTo() == 7) {
+        castlingRights &= 0b0111; // remove white kingside castling rights
+    }
+    if (move.getFrom() == 56 || move.getTo() == 56) {
+        castlingRights &= 0b1110; // remove black queenside castling rights
+    }
+    if (move.getFrom() == 63 || move.getTo() == 63) {
+        castlingRights &= 0b0001; // remove black kingside castling rights
+    }
+
+    // update en passant square
+    enPassantSquare = 64; // reset en passant square
+    if (move.isDoubleAdvance()) {
+        enPassantSquare = move.getEnPassantSquare();
+    }
+
+    // switch active color
+    activeColor = ~activeColor;
+
+    playOnPosition(move);
+}
+
+void PositionBase::unplay() {
+    // let's pop out the last move
+    Move lastMove = moveHistory.back();
+    moveHistory.pop_back();
+
+    // let's pop out the undo info
+    UndoInfo lastUndoInfo = stateHistory.back();
+    stateHistory.pop_back();
+
+    // restore UndoInfo
+    castlingRights = lastUndoInfo.castlingRights;
+    enPassantSquare = lastUndoInfo.enPassantSquare;
+    halfmoveClock = lastUndoInfo.halfmoveClock;
+
+    // restore the hash
+    restoreHash(lastMove); // restore the hash from the last move by reapplying XOR
+    removeFromPositionHistory(zobristKey); // remove the last position from the history
+
+    // switch active color
+    activeColor = ~activeColor;
+    // update fullmoveClock
+    if (activeColor == Color::WHITE) {
+        fullmoveClock--; // we are going back one move, so we decrease the fullmove
+    }
+
+    // restore the position
+    unplayOnPosition(lastMove);
+}
+
 
 
 // ----------------------- //
