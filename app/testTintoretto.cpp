@@ -42,10 +42,17 @@ int main() {
 
     // let's try the test class
     Test test("Checking addition");
-    test.complete(1+1 == 2);
+    test.check("1+1=2", 1+1==2);
+    test.check("1+2=3", 1+2==3);
+    test.complete();
 
-    Test test2("Checking multiplication");
-    test2.complete(2*2 == 3);
+    Test test2("Checking nothing");
+    test2.complete();
+
+    Test test3("Testing something that doesn't work");
+    test3.check("0o1 = 1", 0+1==1);
+    test3.check("1o1 = 11", 1+1==1);
+    test3.complete();
 
     Message::par();
     // let's try out highlighting

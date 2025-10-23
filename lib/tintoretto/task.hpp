@@ -90,20 +90,40 @@ class Task: public MutableClass {
 class Test: public Task {
 
     bool isTest = true;
+    int checks = 0;
+    int checksPassed = 0;
 
     public:
-    Test(std::string msg) : Task(msg) {};
+    Test(std::string msg) : Task("<" + msg + ">") {}
+
 
     /**
-     * Completes the task, showing whether the test is passed or not
+     * A step of the test.
      */
-    void complete(bool condition) {
+    void check(std::string label, bool condition) {
+        checks++;
         if (condition) {
-            prefix += cstr("<PASS> ").green();
+            checksPassed++;
         }
-        else {
-            prefix += cstr("<FAIL> ").red();
-        }
+
+        std::string checkResult = condition ? cstr("true").green() : cstr("false").red();
+        print(label + ": " + checkResult);
+    }
+
+
+    bool isPassed() {
+        return (checks == checksPassed);
+    }
+
+    /**
+     * Exit the test (showing whether all subchecks were passed).
+     */
+    void complete() {
+        int proportion_passed = (checks > 0) ? checksPassed * 100 / checks : 100;
+        std::string percentage = std::to_string(proportion_passed) + "%";
+        percentage = isPassed() ? cstr(percentage).green() : cstr(percentage).red();
+        
+        prefix += percentage + " ";
         Task::complete();
     } 
 };
