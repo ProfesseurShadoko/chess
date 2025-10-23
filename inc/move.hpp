@@ -91,7 +91,7 @@ inline constexpr Color getColor(Piece piece) {
  * @return The figure of the piece (PAWN, KNIGHT, BISHOP, ROOK, QUEEN, KING, or EMPTY).
  */
 inline constexpr Figure getFigure(Piece piece) {
-    return static_cast<Figure>(piece & 0x0111); // 0x7 is the bits for figure
+    return static_cast<Figure>(piece & 0x7); // 0x7 is the bits for figure // same as 0b0111
 } // 0x7 = 0b0111 --> mask all except the last 3 bits
 
 /**
