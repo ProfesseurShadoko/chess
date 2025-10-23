@@ -141,6 +141,30 @@ inline constexpr uint32_t getCol(Square square) {
 }
 
 /**
+ * @brief Returns a square (an integer from 0 to 63) based on its string representation.
+ * 
+ * @param square The string. For instance `"c2"`.
+ * @return The corresponding Square object (integer).
+ */
+inline const Square makeSquare(std::string square) {
+    char col = square[0];
+    char row = square[1];
+    return (row - '1') * 8 + (col - 'a');
+}
+
+/**
+ * @brief Converts a Square object (an integer from  to 0 to 63) to a string.
+ * 
+ * @param square The number of the square, from 0 to 63.
+ * @return The corresponding string, for instance `"c2"`.
+ */
+inline const std::string getStringFromSquare(Square square) {
+    char col = 'a' + getCol(square);
+    char row = '1' + getRow(square);
+    return std::string() + col + row;
+}
+
+/**
  * @brief Returns the color of a square (uint32_t) on the chessboard.
  * 
  * This function determines the color of a square based on the parities of its row and column indices.
