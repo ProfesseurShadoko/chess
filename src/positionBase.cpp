@@ -7,6 +7,80 @@
 
 
 
+
+// -------------------- //
+// !-- FEN notation --! //
+// -------------------- //
+
+Piece PositionBase::getPieceOnBoardUI(Square square, const BoardUI& boardUI) const {
+    if (square < 0 || square >= 64) throw std::out_of_range("Square out of range");
+    int row = square / 8;
+    int col = square % 8;
+    char pieceChar = boardUI.board[row][col];
+    return makePiece(pieceChar);
+}
+
+void PositionBase::setPieceOnBoardUI(Square square, Piece piece, BoardUI& boardUI) const {
+    if (square < 0 || square >= 64) throw std::out_of_range("Square out of range");
+    int row = square / 8;
+    int col = square % 8;
+    boardUI.board[row][col] = getCharFromPiece(piece);
+}
+
+void PositionBase::fromFEN(const std::string& fen) {
+    BoardUI board;
+    board.fromFEN(fen);
+
+    // 1) Set the variables
+    activeColor = board.activeColor == 'w' ? Color::WHITE : Color::BLACK;
+    castlingRights = 0;
+    if (board.castlingRights.find('K') != std::string::npos) castlingRights |= 0b1000; // white kingside
+    if (board.castlingRights.find('Q') != std::string::npos) castlingRights |= 0b0100; // white queenside
+    if (board.castlingRights.find('k') != std::string::npos) castlingRights |= 0b0010; // black kingside
+    if (board.castlingRights.find('q') != std::string::npos) castlingRights |= 0b0001; // black queenside
+    enPassantSquare = board.enPassantTarget == "-" ? 64 : board.enPassantTarget[0] - 'a' + (board.enPassantTarget[1] - '1') * 8; // convert to square index, 64 is an invalid square
+    halfmoveClock = board.halfMoveClock;
+    fullmoveClock = board.fullMoveClock;
+
+    // 2) reset history of positions
+    stateHistory.clear();
+    moveHistory.clear(); // clear the move history
+
+    // 3) add the pieces to the position
+    for (Square square = 0; square < 64; square++) {
+        Piece piece = getPieceOnBoardUI(square, board);
+        if (piece != makePiece(Color::WHITE, Figure::EMPTY)) {
+            setPieceAt(square, piece); // implemented by child class
+        }
+    }
+}
+
+std::string PositionBase::toFEN() const {
+    BoardUI board;
+
+    // 1) Set variabels from BoardUI
+    board.activeColor = (activeColor == Color::WHITE) ? 'w' : 'b';
+    board.castlingRights = "";
+    if (castlingRights & 0b1000) board.castlingRights += 'K'; // white kingside
+    if (castlingRights & 0b0100) board.castlingRights += 'Q'; // white queenside
+    if (castlingRights & 0b0010) board.castlingRights += 'k'; // black kingside
+    if (castlingRights & 0b0001) board.castlingRights += 'q'; // black queenside
+    if (board.castlingRights.empty()) board.castlingRights = "-"; // if no castling rights, set to "-"
+    board.enPassantTarget = (enPassantSquare == 64) ? "-" :
+        std::string(1, 'a' + getCol(enPassantSquare)) + std::to_string(getRow(enPassantSquare) + 1); // convert square index to algebraic notation
+    board.halfMoveClock = halfmoveClock;
+    board.fullMoveClock = fullmoveClock;
+
+    // 2) Fill the board with pieces
+    for (Square square = 0; square < 64; square++) {
+        Piece piece = getPieceAt(square); // implemented by child class
+        setPieceOnBoardUI(square, piece, board);
+    }
+
+    // 3) Convert to FEN string
+    return board.toFEN();
+}
+
 // --------------------- //
 // !-- Play & Unplay --! //
 // --------------------- //
