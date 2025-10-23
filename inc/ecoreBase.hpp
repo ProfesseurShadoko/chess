@@ -2,5 +2,5 @@
 
 
 /**
- * Engine core: search the tree with alpha beta
+ * Engine core: search the tree
  */
