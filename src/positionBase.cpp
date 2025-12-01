@@ -394,5 +394,3 @@ void PositionBase::updateHash(const Move& move) {
     // 9) Update active color
     zobristKey ^= activeColorKey; // switch to black
 }
-
-
