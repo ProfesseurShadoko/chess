@@ -402,7 +402,7 @@ class BoardUI {
          * @brief Returns for the console the string representation of the board.
          */
         const std::string toString() const {
-            std::string out = "\nFEN: " + toFEN() + "\n";
+            std::string out = "";
             // Define the separation between two rows
             const std::string hborder = "   +----+----+----+----+----+----+----+----+";
 
@@ -475,6 +475,25 @@ class BoardUI {
         void unmarkAll() {
             markedSquares.clear();
             markedSquaresColors.clear();
+        }
+
+
+        // --------------- //
+        // !-- Display --! //
+        // --------------- //
+
+        /**
+         * @brief Display the board in the console with FEN and markings.
+         */
+        void display() const {
+        
+            Message("Board fen:");
+            Message::tab();
+            Message::print(cstr(toFEN()).yellow());
+            Message::untab();
+            Message::par();
+            std::cout << toString() << std::endl;
+            Message::par();
         }
 };
 
