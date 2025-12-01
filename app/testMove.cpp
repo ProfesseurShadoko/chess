@@ -1,5 +1,6 @@
 #include <tintoretto.hpp>
 #include "move.hpp"
+#include "boardUI.hpp"
 #include <string>
 
 
@@ -64,6 +65,9 @@ int main() {
     test.check("Move is double advance", move.isDoubleAdvance());
     test.check("En passant square is e3", move.getEnPassantSquare() == makeSquare("e3"));
     test.check("Move is 'e2e4'", move.toString() == "e2e4");
+
+    test.complete();
+    
 
 
     return 0;

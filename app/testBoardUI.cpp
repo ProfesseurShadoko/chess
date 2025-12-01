@@ -82,7 +82,7 @@ int main() {
     } catch (const std::exception& e) {
         passed = false;
     }
-    move_test.complete(passed);
+    move_test.check("All moves have been played successfully", passed);
 
 
     Test fen_test("Testing FEN in-out");
@@ -90,7 +90,7 @@ int main() {
     BoardUI board2;
     board2.fromFEN(fen);
     std::string fen2 = board2.toFEN();
-    fen_test.complete(fen == fen2);
+    fen_test.check("The FEN returned by the BoardUI is the expected FEN.", fen == fen2);
 
     Message::print("Looking at board constructed from previous fen:");
     std::cout << board2 << std::endl;
@@ -103,6 +103,6 @@ int main() {
     board3.mark("f3", 2); // cyan
     board3.mark("f2", 3); // purple
     std::cout << board3 << std::endl;
-    mark_test.complete(true);
+    mark_test.check("Marked squares are shown correctly (visual check)", true); // visual check for now
 
 }
