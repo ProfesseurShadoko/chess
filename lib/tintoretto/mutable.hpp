@@ -82,7 +82,9 @@ class MutableClass {
         }
 
         static void par() {
-            print();
+            if (!is_muted()) {
+                std::cout << std::endl;
+            }
         }
 
     protected:
