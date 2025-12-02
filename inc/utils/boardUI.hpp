@@ -35,7 +35,10 @@ class BoardUI {
          * @brief Initilizes the board to an empty state.
          */
         void clearBoard() {
-            board.resize(8, std::vector<char>(8, '.')); // Initialize an 8x8 board with all squares empty (' ')
+            //board.resize(8, std::vector<char>(8, '.')); // Initialize an 8x8 board with all squares empty (' ')
+            board.assign(8, std::vector<char>(8, '.')); // Initialize an 8x8 board with all squares empty ('.')
+            markedSquares.clear();
+            markedSquaresColors.clear();
         }
 
         /**
