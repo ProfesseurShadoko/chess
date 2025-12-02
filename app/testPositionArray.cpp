@@ -16,10 +16,7 @@ int main() {
     // !-- Test initialization --! //
     // --------------------------- //
 
-    // we need the structuredPositionBase to test the PosStructAsArray
-    using PositionAsArrayTest = PositionBaseT<PosStructAsArray, MoveGeneratorForArray>;
-    
-    PositionAsArrayTest position;
+    PositionAsArray position;
     position.display();
 
     Move move = Move(
@@ -29,5 +26,18 @@ int main() {
     );
 
     position.play(move, false);
+    position.display();
+
+
+    // -------------------------- //
+    // !-- Test play / unplay --! //
+    // -------------------------- //
+
+    Test test("Play / Unplay moves on PositionAsArray");
+    std::string fen = "rnbqkbnr/ppp1pppp/8/8/1PpP4/8/P3PPPP/RNBQKBNR b KQkq b3 0 3";
+    //board.clearBoard();
+    //board.fromFEN(fen);
+    //board.display();
+    position.fromFEN(fen);
     position.display();
 }
