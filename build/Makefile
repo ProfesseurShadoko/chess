@@ -117,48 +117,72 @@ depend:
 .PHONY : depend
 
 #=============================================================================
-# Target rules for targets named testMove.exe
+# Target rules for targets named testPositionArray.exe
 
 # Build rule for target.
-testMove.exe: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 testMove.exe
-.PHONY : testMove.exe
+testPositionArray.exe: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 testPositionArray.exe
+.PHONY : testPositionArray.exe
 
 # fast build rule for target.
-testMove.exe/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/testMove.exe.dir/build.make CMakeFiles/testMove.exe.dir/build
-.PHONY : testMove.exe/fast
+testPositionArray.exe/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/testPositionArray.exe.dir/build.make CMakeFiles/testPositionArray.exe.dir/build
+.PHONY : testPositionArray.exe/fast
 
-app/testMove.o: app/testMove.cpp.o
-.PHONY : app/testMove.o
+app/testPositionArray.o: app/testPositionArray.cpp.o
+.PHONY : app/testPositionArray.o
 
 # target to build an object file
-app/testMove.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/testMove.exe.dir/build.make CMakeFiles/testMove.exe.dir/app/testMove.cpp.o
-.PHONY : app/testMove.cpp.o
+app/testPositionArray.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/testPositionArray.exe.dir/build.make CMakeFiles/testPositionArray.exe.dir/app/testPositionArray.cpp.o
+.PHONY : app/testPositionArray.cpp.o
 
-app/testMove.i: app/testMove.cpp.i
-.PHONY : app/testMove.i
+app/testPositionArray.i: app/testPositionArray.cpp.i
+.PHONY : app/testPositionArray.i
 
 # target to preprocess a source file
-app/testMove.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/testMove.exe.dir/build.make CMakeFiles/testMove.exe.dir/app/testMove.cpp.i
-.PHONY : app/testMove.cpp.i
+app/testPositionArray.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/testPositionArray.exe.dir/build.make CMakeFiles/testPositionArray.exe.dir/app/testPositionArray.cpp.i
+.PHONY : app/testPositionArray.cpp.i
 
-app/testMove.s: app/testMove.cpp.s
-.PHONY : app/testMove.s
+app/testPositionArray.s: app/testPositionArray.cpp.s
+.PHONY : app/testPositionArray.s
 
 # target to generate assembly for a file
-app/testMove.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/testMove.exe.dir/build.make CMakeFiles/testMove.exe.dir/app/testMove.cpp.s
-.PHONY : app/testMove.cpp.s
+app/testPositionArray.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/testPositionArray.exe.dir/build.make CMakeFiles/testPositionArray.exe.dir/app/testPositionArray.cpp.s
+.PHONY : app/testPositionArray.cpp.s
+
+src/positionAsArray.o: src/positionAsArray.cpp.o
+.PHONY : src/positionAsArray.o
+
+# target to build an object file
+src/positionAsArray.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/testPositionArray.exe.dir/build.make CMakeFiles/testPositionArray.exe.dir/src/positionAsArray.cpp.o
+.PHONY : src/positionAsArray.cpp.o
+
+src/positionAsArray.i: src/positionAsArray.cpp.i
+.PHONY : src/positionAsArray.i
+
+# target to preprocess a source file
+src/positionAsArray.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/testPositionArray.exe.dir/build.make CMakeFiles/testPositionArray.exe.dir/src/positionAsArray.cpp.i
+.PHONY : src/positionAsArray.cpp.i
+
+src/positionAsArray.s: src/positionAsArray.cpp.s
+.PHONY : src/positionAsArray.s
+
+# target to generate assembly for a file
+src/positionAsArray.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/testPositionArray.exe.dir/build.make CMakeFiles/testPositionArray.exe.dir/src/positionAsArray.cpp.s
+.PHONY : src/positionAsArray.cpp.s
 
 src/positionBase.o: src/positionBase.cpp.o
 .PHONY : src/positionBase.o
 
 # target to build an object file
 src/positionBase.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/testMove.exe.dir/build.make CMakeFiles/testMove.exe.dir/src/positionBase.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/testPositionArray.exe.dir/build.make CMakeFiles/testPositionArray.exe.dir/src/positionBase.cpp.o
 .PHONY : src/positionBase.cpp.o
 
 src/positionBase.i: src/positionBase.cpp.i
@@ -166,7 +190,7 @@ src/positionBase.i: src/positionBase.cpp.i
 
 # target to preprocess a source file
 src/positionBase.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/testMove.exe.dir/build.make CMakeFiles/testMove.exe.dir/src/positionBase.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/testPositionArray.exe.dir/build.make CMakeFiles/testPositionArray.exe.dir/src/positionBase.cpp.i
 .PHONY : src/positionBase.cpp.i
 
 src/positionBase.s: src/positionBase.cpp.s
@@ -174,7 +198,7 @@ src/positionBase.s: src/positionBase.cpp.s
 
 # target to generate assembly for a file
 src/positionBase.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/testMove.exe.dir/build.make CMakeFiles/testMove.exe.dir/src/positionBase.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/testPositionArray.exe.dir/build.make CMakeFiles/testPositionArray.exe.dir/src/positionBase.cpp.s
 .PHONY : src/positionBase.cpp.s
 
 # Help Target
@@ -185,10 +209,13 @@ help:
 	@echo "... depend"
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
-	@echo "... testMove.exe"
-	@echo "... app/testMove.o"
-	@echo "... app/testMove.i"
-	@echo "... app/testMove.s"
+	@echo "... testPositionArray.exe"
+	@echo "... app/testPositionArray.o"
+	@echo "... app/testPositionArray.i"
+	@echo "... app/testPositionArray.s"
+	@echo "... src/positionAsArray.o"
+	@echo "... src/positionAsArray.i"
+	@echo "... src/positionAsArray.s"
 	@echo "... src/positionBase.o"
 	@echo "... src/positionBase.i"
 	@echo "... src/positionBase.s"

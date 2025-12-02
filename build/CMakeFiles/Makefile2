@@ -63,7 +63,7 @@ CMAKE_BINARY_DIR = /home/kiwi/documents/cpp/chess/build
 # Directory level rules for the build root directory
 
 # The main recursive "all" target.
-all: CMakeFiles/testMove.exe.dir/all
+all: CMakeFiles/testPositionArray.exe.dir/all
 .PHONY : all
 
 # The main recursive "preinstall" target.
@@ -71,34 +71,34 @@ preinstall:
 .PHONY : preinstall
 
 # The main recursive "clean" target.
-clean: CMakeFiles/testMove.exe.dir/clean
+clean: CMakeFiles/testPositionArray.exe.dir/clean
 .PHONY : clean
 
 #=============================================================================
-# Target rules for target CMakeFiles/testMove.exe.dir
+# Target rules for target CMakeFiles/testPositionArray.exe.dir
 
 # All Build rule for target.
-CMakeFiles/testMove.exe.dir/all:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/testMove.exe.dir/build.make CMakeFiles/testMove.exe.dir/depend
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/testMove.exe.dir/build.make CMakeFiles/testMove.exe.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/kiwi/documents/cpp/chess/build/CMakeFiles --progress-num=1,2,3 "Built target testMove.exe"
-.PHONY : CMakeFiles/testMove.exe.dir/all
+CMakeFiles/testPositionArray.exe.dir/all:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/testPositionArray.exe.dir/build.make CMakeFiles/testPositionArray.exe.dir/depend
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/testPositionArray.exe.dir/build.make CMakeFiles/testPositionArray.exe.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/kiwi/documents/cpp/chess/build/CMakeFiles --progress-num=1,2,3,4 "Built target testPositionArray.exe"
+.PHONY : CMakeFiles/testPositionArray.exe.dir/all
 
 # Build rule for subdir invocation for target.
-CMakeFiles/testMove.exe.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/kiwi/documents/cpp/chess/build/CMakeFiles 3
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/testMove.exe.dir/all
+CMakeFiles/testPositionArray.exe.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/kiwi/documents/cpp/chess/build/CMakeFiles 4
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/testPositionArray.exe.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/kiwi/documents/cpp/chess/build/CMakeFiles 0
-.PHONY : CMakeFiles/testMove.exe.dir/rule
+.PHONY : CMakeFiles/testPositionArray.exe.dir/rule
 
 # Convenience name for target.
-testMove.exe: CMakeFiles/testMove.exe.dir/rule
-.PHONY : testMove.exe
+testPositionArray.exe: CMakeFiles/testPositionArray.exe.dir/rule
+.PHONY : testPositionArray.exe
 
 # clean rule for target.
-CMakeFiles/testMove.exe.dir/clean:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/testMove.exe.dir/build.make CMakeFiles/testMove.exe.dir/clean
-.PHONY : CMakeFiles/testMove.exe.dir/clean
+CMakeFiles/testPositionArray.exe.dir/clean:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/testPositionArray.exe.dir/build.make CMakeFiles/testPositionArray.exe.dir/clean
+.PHONY : CMakeFiles/testPositionArray.exe.dir/clean
 
 #=============================================================================
 # Special targets to cleanup operation of make.

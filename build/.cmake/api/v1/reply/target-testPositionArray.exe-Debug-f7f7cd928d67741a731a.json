@@ -2,7 +2,7 @@
 	"artifacts" : 
 	[
 		{
-			"path" : "/home/kiwi/documents/cpp/chess/bin/testMove.exe"
+			"path" : "/home/kiwi/documents/cpp/chess/bin/testPositionArray.exe"
 		}
 	],
 	"backtrace" : 1,
@@ -122,11 +122,12 @@
 			"sourceIndexes" : 
 			[
 				0,
-				1
+				1,
+				2
 			]
 		}
 	],
-	"id" : "testMove.exe::@6890427a1f51a3e7e1df",
+	"id" : "testPositionArray.exe::@6890427a1f51a3e7e1df",
 	"link" : 
 	{
 		"commandFragments" : 
@@ -157,8 +158,8 @@
 		],
 		"language" : "CXX"
 	},
-	"name" : "testMove.exe",
-	"nameOnDisk" : "testMove.exe",
+	"name" : "testPositionArray.exe",
+	"nameOnDisk" : "testPositionArray.exe",
 	"paths" : 
 	{
 		"build" : ".",
@@ -171,7 +172,8 @@
 			"sourceIndexes" : 
 			[
 				0,
-				1
+				1,
+				2
 			]
 		}
 	],
@@ -180,7 +182,13 @@
 		{
 			"backtrace" : 1,
 			"compileGroupIndex" : 0,
-			"path" : "app/testMove.cpp",
+			"path" : "app/testPositionArray.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "src/positionAsArray.cpp",
 			"sourceGroupIndex" : 0
 		},
 		{

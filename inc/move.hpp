@@ -170,6 +170,7 @@ inline const Square makeSquare(std::string square) {
  * @return The corresponding string, for instance `"c2"`.
  */
 inline const std::string getStringFromSquare(Square square) {
+    if (square > 63) throw std::invalid_argument("Square must be between 0 and 63");
     char col = 'a' + getCol(square);
     char row = '1' + getRow(square);
     return std::string() + col + row;

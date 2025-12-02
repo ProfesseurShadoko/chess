@@ -65,7 +65,7 @@ class PositionBase {
          * that sets the position to the standard chess starting position (through fromFEN).
          */
         PositionBase() {
-            reset();
+            // reset(); // if you call this here, setPieceAt is called before the child class is constructed!! Bad!! Error with pure virtual function.
         }
 
         virtual ~PositionBase() = default;
@@ -91,7 +91,10 @@ class PositionBase {
         // !-- FEN notation --! //
         // -------------------- //
 
-        void reset() {fromFEN(BoardUI::startpos);}
+        void reset() {
+            fromFEN(BoardUI::startpos);
+            initializeHash();
+        }
 
         /**
          * @brief Get the piece on a specific square from a BoardUI object.
@@ -172,9 +175,33 @@ class PositionBase {
             return _isDrawByRepetition;
         }
 
-        bool isDrawByInsufficientMaterial() {
+        bool isDrawByInsufficientMaterial() const {
             return false; // TODO: implement this!!
         };
+
+        Square getEnPassantSquare() const {
+            return enPassantSquare;
+        }
+
+        Color getActiveColor() const {
+            return activeColor;
+        }
+
+        /**
+         * @brief Get the castling rights as a vector of booleans.
+         * @return A vector of booleans representing castling rights in the order: White king side, White queen side, Black king side, Black queen side.
+         */
+        std::vector<bool> getCastlingRights() const {
+            return {
+                (castlingRights & 0b1000) != 0, // White king side
+                (castlingRights & 0b0100) != 0, // White queen side
+                (castlingRights & 0b0010) != 0, // Black king side
+                (castlingRights & 0b0001) != 0  // Black queen side
+            };
+        }
+
+        
+        
 
 
 
@@ -190,7 +217,7 @@ class PositionBase {
          * @brief Generates all legal moves for the current position.
          * @return A vector of legal moves.
          */
-        virtual std::vector<Move> getLegalMoves() const = 0;
+        virtual std::vector<Move> getLegalMoves() = 0;
 
 
         // ------------------ //
@@ -242,6 +269,13 @@ class PositionBase {
         static uint64_t activeColorKey;
         static inline bool hashInitialized = false; // to avoid re-initializing the hash tables multiple times
         static void initializeHashTables();
+
+    // ---------- //
+    // !-- UI --! //
+    // ---------- //
+
+    public:
+        void display();
 };
 
 
@@ -252,16 +286,19 @@ class PositionBase {
 // virtual functions by passing on to the structure.
 // only get legal moves would remain virtual in StructuredPositionBase
 #include "positionStructureBase.hpp"
-#include <memory>
+#include "moveGeneratorBase.hpp"
 
-class StructuredPositionBase : public PositionBase {
+
+template <typename PositionStructureType, typename MoveGeneratorType>
+class PositionBaseT : public PositionBase {
 
     protected:
-        std::unique_ptr<PositionStructureBase> structure; // the underlying structure
+        PositionStructureType structure; // the underlying structure
+        MoveGeneratorType moveGenerator; // the move generator
     
     public:
-        StructuredPositionBase(std::unique_ptr<PositionStructureBase> structurePtr) : structure(std::move(structurePtr)) {
-
+        PositionBaseT() {
+            reset();
         }
     
     // ----------------- //
@@ -270,19 +307,25 @@ class StructuredPositionBase : public PositionBase {
 
     public:
         Piece getPieceAt(Square square) const override {
-            return structure->getPieceAt(square);
+            return structure.getPieceAt(square);
         }
         void setPieceAt(Square square, Piece piece) override {
-            structure->setPieceAt(square, piece);
+            structure.setPieceAt(square, piece);
         }
         std::vector<SquarePiece> getPieces() const override {
-            return structure->getPieces();
+            return structure.getPieces();
         }
         void playOnPosition(const Move& move) override {
-            structure->playOnPosition(move);
+            structure.playOnPosition(move);
+            moveGenerator.play(move, structure);
         }
         void unplayOnPosition(const Move& move) override {
-            structure->unplayOnPosition(move);
+            structure.unplayOnPosition(move);
+            moveGenerator.unplay(move, structure);
+        }
+
+        std::vector<Move> getLegalMoves() override {
+            return moveGenerator.getLegalMoves(structure, getActiveColor(), getEnPassantSquare(), getCastlingRights());
         }
 
         
@@ -290,13 +333,7 @@ class StructuredPositionBase : public PositionBase {
     // !-- Copy --! //
     // ------------ //
 
-        StructuredPositionBase(const StructuredPositionBase&) = delete;
-        StructuredPositionBase& operator=(const StructuredPositionBase&) = delete;
-        StructuredPositionBase(StructuredPositionBase&&) = default;
-        StructuredPositionBase& operator=(StructuredPositionBase&&) = default;
-        // wtf am I doing??
-
-        virtual ~StructuredPositionBase() = default;
+        virtual ~PositionBaseT() = default;
 };
 
 

@@ -397,3 +397,82 @@ void PositionBase::updateHash(const Move& move) {
     // 9) Update active color
     zobristKey ^= activeColorKey; // switch to black
 }
+
+
+
+
+
+/**
+ * Displays the current position by using the board UI. Prints
+ * also different information about the position (fen, hash, isDrawByRepetition, ...)
+ */
+void PositionBase::display() {
+
+    // create the board UI
+    Message::mute();
+    std::string fen = toFEN();
+    BoardUI board;
+    board.fromFEN(fen);
+    Message::unmute();
+
+    // 1. display information
+    Message("Current position:");
+    Message::tab();
+    Message("Meta");
+    Message::tab();
+    Message::print("Active Color: " + std::string(activeColor == Color::WHITE ? "White" : "Black"));
+    std::string castlingStr;
+    if (castlingRights & 0b1000) castlingStr += "K";
+    if (castlingRights & 0b0100) castlingStr += "Q";
+    if (castlingRights & 0b0010) castlingStr += "k";
+    if (castlingRights & 0b0001) castlingStr += "q";
+    Message::print("Castling Rights: " + castlingStr);
+    
+    Message::print("En Passant Square: " + (enPassantSquare < 64 ? 
+        getStringFromSquare(enPassantSquare) : "-"));
+    Message::print("Halfmove Clock: " + std::to_string(halfmoveClock));
+    Message::print("Fullmove Clock: " + std::to_string(fullmoveClock));
+    Message::print("FEN: " + fen);
+    Message::print("Zobrist Hash: " + std::to_string(zobristKey));
+    Message::untab();
+
+    // 2. Display draw rules and all
+    Message("Draw Rules:");
+    Message::tab();
+    Message::print("Draw by Repetition: " + std::string(isDrawByRepetition() ? "Yes" : "No"));
+    Message::print("Draw by 50-move rule: " + std::string(isDrawBy50Moves() ? "Yes" : "No"));
+    Message::print("Draw by insufficient material: " + std::string(isDrawByInsufficientMaterial() ? "Yes" : "No"));
+    Message::print("Piece Count:");
+    Message::tab();
+    Message::print("White Pawns: " + std::to_string(pieceCount[0][static_cast<uint32_t>(Figure::PAWN)]));
+    Message::print("White Knights: " + std::to_string(pieceCount[0][static_cast<uint32_t>(Figure::KNIGHT)]));
+    Message::print("White Bishops: " + std::to_string(pieceCount[0][static_cast<uint32_t>(Figure::BISHOP)]));
+    Message::print("White Rooks: " + std::to_string(pieceCount[0][static_cast<uint32_t>(Figure::ROOK)]));
+    Message::print("White Queens: " + std::to_string(pieceCount[0][static_cast<uint32_t>(Figure::QUEEN)])); 
+    Message::print("White Kings: " + std::to_string(pieceCount[0][static_cast<uint32_t>(Figure::KING)]));
+    Message::print("Black Pawns: " + std::to_string(pieceCount[1][static_cast<uint32_t>(Figure::PAWN)]));
+    Message::print("Black Knights: " + std::to_string(pieceCount[1][static_cast<uint32_t>(Figure::KNIGHT)]));
+    Message::print("Black Bishops: " + std::to_string(pieceCount[1][static_cast<uint32_t>(Figure::BISHOP)]));
+    Message::print("Black Rooks: " + std::to_string(pieceCount[1][static_cast<uint32_t>(Figure::ROOK)]));
+    Message::print("Black Queens: " + std::to_string(pieceCount[1][static_cast<uint32_t>(Figure::QUEEN)])); 
+    Message::print("Black Kings: " + std::to_string(pieceCount[1][static_cast<uint32_t>(Figure::KING)]));
+    Message::untab();
+    Message::print("Position History: " + std::to_string(positionHistory.size()) + " positions stored.");
+    Message::print("Move History: " + std::to_string(moveHistory.size()) + " moves in history.");
+
+    std::vector<Move> legalMoves = getLegalMoves();
+    Message::print("Legal Moves: " + std::to_string(legalMoves.size()) + " moves available.");
+    // 5. Mark pieces that can move
+    for (const Move& move : legalMoves) {
+        Square from = move.getFrom();
+        board.mark(getStringFromSquare(from), 0); // mark in one color (green)
+    }
+    // 6. Mark where they can go
+    for (const Move& move : legalMoves) {
+        Square to = move.getTo();
+        board.mark(getStringFromSquare(to), 2); // mark in another color (cyan)
+    }
+
+    board.display();
+
+}

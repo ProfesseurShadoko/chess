@@ -38,9 +38,9 @@
 			[
 				{
 					"directoryIndex" : 0,
-					"id" : "testMove.exe::@6890427a1f51a3e7e1df",
-					"jsonFile" : "target-testMove.exe-Debug-1a54606803d08dd437e3.json",
-					"name" : "testMove.exe",
+					"id" : "testPositionArray.exe::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-testPositionArray.exe-Debug-f7f7cd928d67741a731a.json",
+					"name" : "testPositionArray.exe",
 					"projectIndex" : 0
 				}
 			]
