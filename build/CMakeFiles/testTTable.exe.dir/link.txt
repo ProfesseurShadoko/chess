@@ -1,1 +1,0 @@
-/usr/bin/c++ -g -rdynamic CMakeFiles/testTTable.exe.dir/app/testTTable.cpp.o CMakeFiles/testTTable.exe.dir/src/positionBase.cpp.o -o ../bin/testTTable.exe  /usr/lib/x86_64-linux-gnu/libsfml-graphics.so.2.5.1 /usr/lib/x86_64-linux-gnu/libsfml-window.so.2.5.1 /usr/lib/x86_64-linux-gnu/libsfml-system.so.2.5.1 

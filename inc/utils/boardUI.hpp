@@ -467,7 +467,10 @@ class BoardUI {
                 throw std::invalid_argument("Invalid square: " + square);
             }
 
-            // Add the square to the marked squares
+            // Add the square to the marked squares only if not already present
+            if (std::find(markedSquares.begin(), markedSquares.end(), square) != markedSquares.end()) {
+                return;
+            }
             markedSquares.push_back(square);
             markedSquaresColors.push_back(color);
         }
