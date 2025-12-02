@@ -26,44 +26,6 @@ class PosStructAsArray : public PositionStructureBase {
         void setPieceAt(Square square, Piece piece) override {
             boardArray[square] = piece;
         }
-
-        std::vector<SquarePiece> getPieces() const override {
-            std::vector<SquarePiece> pieces;
-            for (Square square = 0; square < 64; ++square) {
-                Piece piece = boardArray[square];
-                if (getFigure(piece) != Figure::EMPTY) {
-                    pieces.push_back((static_cast<SquarePiece>(square) << 8) | static_cast<SquarePiece>(piece));
-                }
-            }
-            return pieces;
-        }
-
-        void playOnPosition(const Move& move) override {
-            // TODO: add castle, promotion and en passant logic
-
-            Square from = move.getFrom();
-            Square to = move.getTo();
-            Piece piece = move.getPiece();
-            Piece promotion = move.getPromotion();
-
-            // Move the piece
-            boardArray[to] = (getFigure(promotion) != Figure::EMPTY) ? promotion : piece; // handle promotion
-            boardArray[from] = makePiece(Color::WHITE, Figure::EMPTY); // empty the from square
-        }
-
-        void unplayOnPosition(const Move& move) override {
-            // TODO: add castle, promotion and en passant logic
-
-            Square from = move.getFrom();
-            Square to = move.getTo();
-            Piece piece = move.getPiece();
-            Piece captured = move.getCapture();
-            Piece promotion = move.getPromotion();
-
-            // Restore the piece
-            boardArray[from] = piece; // move back the piece
-            boardArray[to] = captured; // restore captured piece or empty square
-        }
 };
 
 
