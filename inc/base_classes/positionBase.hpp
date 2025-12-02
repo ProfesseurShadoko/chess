@@ -8,17 +8,6 @@
 
 #include <unordered_map>
 
-/**
- * TODO:
- * include unordered map and keep track of maximum repetition over game, so that we don't need
- * to call 3 repetitions each time we make a move.
- * Fix the draw functions.
- * enable more flexibility for the handling of zobriest key.
- * transfer cpp code here into cpp file
- * 
- * fix count piece with bishops black and white
- * initialize piece count with fens
- */
 
 
 
@@ -70,6 +59,7 @@ class PositionBase {
         uint32_t pieceCount[2 /* colors */][8 /* 7 figures, but distinguish between white and black bishop(3). Black bishop will be 7 and white bishop 3*/];
         bool _isDrawByRepetition = false; // don't forget to put back when unplaying
 
+    public:
         /**
          * @brief Creates a position base object by initializing it through the reset() method, 
          * that sets the position to the standard chess starting position (through fromFEN).
@@ -78,6 +68,7 @@ class PositionBase {
             reset();
         }
 
+        virtual ~PositionBase() = default;
 
         /**
          * @brief Get the piece on a specific square.
@@ -144,17 +135,20 @@ class PositionBase {
         // !-- Play & Unplay --! //
         // --------------------- //
 
+    protected:
         uint32_t getNewCastlingRights(const Move& move) const;
         Square getNewEnPassantSquare(const Move& move) const;
         void updatePieceCount(const Move& move);
         void restorePieceCount(const Move& move);
 
+    
         /**
          * @brief Changes nothing but the piece representation.
          */
-        virtual void playOnPosition(const Move& move) const = 0;
-        virtual void unplayOnPosition(const Move& move) const = 0;
+        virtual void playOnPosition(const Move& move) = 0;
+        virtual void unplayOnPosition(const Move& move) = 0;
 
+    public:
         /**
          * Updates state variables and calls playOnPosition to update the position.
          */
@@ -179,7 +173,7 @@ class PositionBase {
         }
 
         bool isDrawByInsufficientMaterial() {
-            return false;
+            return false; // TODO: implement this!!
         };
 
 
@@ -192,13 +186,30 @@ class PositionBase {
         // !-- Move Generation --! //
         // ----------------------- //
 
+        /**
+         * @brief Generates all legal moves for the current position.
+         * @return A vector of legal moves.
+         */
         virtual std::vector<Move> getLegalMoves() const = 0;
+
+
+        // ------------------ //
+        // !-- Evaluation --! //
+        // ------------------ //
+
+        /**
+         * @brief Get all pieces and corresponding squares on the board.
+         * 
+         * Pure virtual function (depends on the underlying structure). Used for evaluation function.
+         */
+        virtual std::vector<SquarePiece> getPieces() const = 0; // for the evaluation function
 
 
         // ----------------------- //
         // !-- Zobrist Hashing --! //
         // ----------------------- //
 
+    protected:
         void addToPositionHistory(uint64_t hash) {
             positionHistory[hash]++;
 
@@ -214,6 +225,7 @@ class PositionBase {
             }
         }
 
+    public:
         uint64_t getHash() const {
             return zobristKey;
         }
@@ -221,7 +233,8 @@ class PositionBase {
         void initializeHash();
         void updateHash(const Move& move);
         void restoreHash(const Move& move) {updateHash(move);} // updateHash is an involution.
-        
+    
+    protected:
         // Zobriest tables
         static uint64_t pieceKeys[2 /*colors*/][6 /*figures*/][64 /*squares*/];
         static uint64_t castlingKeys[16 /*castling rights*/]; // 2^4bits
@@ -230,6 +243,62 @@ class PositionBase {
         static inline bool hashInitialized = false; // to avoid re-initializing the hash tables multiple times
         static void initializeHashTables();
 };
+
+
+
+
+// TODO: add StructuredPositionBase that inherits from PositionBase
+// and has a structurea assigned to it (array, bitboard, etc) and implements 
+// virtual functions by passing on to the structure.
+// only get legal moves would remain virtual in StructuredPositionBase
+#include "positionStructureBase.hpp"
+#include <memory>
+
+class StructuredPositionBase : public PositionBase {
+
+    protected:
+        std::unique_ptr<PositionStructureBase> structure; // the underlying structure
+    
+    public:
+        StructuredPositionBase(std::unique_ptr<PositionStructureBase> structurePtr) : structure(std::move(structurePtr)) {
+
+        }
+    
+    // ----------------- //
+    // !-- Interface --! //
+    // ----------------- //
+
+    public:
+        Piece getPieceAt(Square square) const override {
+            return structure->getPieceAt(square);
+        }
+        void setPieceAt(Square square, Piece piece) override {
+            structure->setPieceAt(square, piece);
+        }
+        std::vector<SquarePiece> getPieces() const override {
+            return structure->getPieces();
+        }
+        void playOnPosition(const Move& move) override {
+            structure->playOnPosition(move);
+        }
+        void unplayOnPosition(const Move& move) override {
+            structure->unplayOnPosition(move);
+        }
+
+        
+    // ------------ //
+    // !-- Copy --! //
+    // ------------ //
+
+        StructuredPositionBase(const StructuredPositionBase&) = delete;
+        StructuredPositionBase& operator=(const StructuredPositionBase&) = delete;
+        StructuredPositionBase(StructuredPositionBase&&) = default;
+        StructuredPositionBase& operator=(StructuredPositionBase&&) = default;
+        // wtf am I doing??
+
+        virtual ~StructuredPositionBase() = default;
+};
+
 
 
 #endif

@@ -9,7 +9,7 @@ set(CMAKE_DEPENDS_LANGUAGES
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
   "/home/kiwi/documents/cpp/chess/app/main.cpp" "CMakeFiles/main.exe.dir/app/main.cpp.o" "gcc" "CMakeFiles/main.exe.dir/app/main.cpp.o.d"
-  "/home/kiwi/documents/cpp/chess/src/boardUI.cpp" "CMakeFiles/main.exe.dir/src/boardUI.cpp.o" "gcc" "CMakeFiles/main.exe.dir/src/boardUI.cpp.o.d"
+  "/home/kiwi/documents/cpp/chess/src/positionBase.cpp" "CMakeFiles/main.exe.dir/src/positionBase.cpp.o" "gcc" "CMakeFiles/main.exe.dir/src/positionBase.cpp.o.d"
   )
 
 # Targets to which this target links.

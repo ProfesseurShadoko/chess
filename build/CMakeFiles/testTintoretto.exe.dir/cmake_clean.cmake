@@ -3,6 +3,8 @@ file(REMOVE_RECURSE
   "../bin/testTintoretto.exe.pdb"
   "CMakeFiles/testTintoretto.exe.dir/app/testTintoretto.cpp.o"
   "CMakeFiles/testTintoretto.exe.dir/app/testTintoretto.cpp.o.d"
+  "CMakeFiles/testTintoretto.exe.dir/src/positionBase.cpp.o"
+  "CMakeFiles/testTintoretto.exe.dir/src/positionBase.cpp.o.d"
 )
 
 # Per-language clean rules from dependency scanning.

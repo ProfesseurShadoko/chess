@@ -67,6 +67,17 @@ int main() {
     test.check("Move is 'e2e4'", move.toString() == "e2e4");
 
     test.complete();
+
+
+    // ------------------------ //
+    // !-- Test SquarePiece --! //
+    // ------------------------ //
+
+    test = Test("SquarePiece Pair");
+    SquarePiece pair = makeSquarePiece(e4, wp);
+    test.check("Extracted square is e4", getSquareFromPair(pair) == e4);
+    test.check("Extracted piece is white pawn", getPieceFromPair(pair) == wp);
+    test.complete();
     
 
 

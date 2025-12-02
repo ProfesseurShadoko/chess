@@ -9,6 +9,7 @@ set(CMAKE_DEPENDS_LANGUAGES
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
   "/home/kiwi/documents/cpp/chess/app/testUCIWrapper.cpp" "CMakeFiles/testUCIWrapper.exe.dir/app/testUCIWrapper.cpp.o" "gcc" "CMakeFiles/testUCIWrapper.exe.dir/app/testUCIWrapper.cpp.o.d"
+  "/home/kiwi/documents/cpp/chess/src/positionBase.cpp" "CMakeFiles/testUCIWrapper.exe.dir/src/positionBase.cpp.o" "gcc" "CMakeFiles/testUCIWrapper.exe.dir/src/positionBase.cpp.o.d"
   )
 
 # Targets to which this target links.

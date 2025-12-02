@@ -3,8 +3,8 @@ file(REMOVE_RECURSE
   "../bin/main.exe.pdb"
   "CMakeFiles/main.exe.dir/app/main.cpp.o"
   "CMakeFiles/main.exe.dir/app/main.cpp.o.d"
-  "CMakeFiles/main.exe.dir/src/boardUI.cpp.o"
-  "CMakeFiles/main.exe.dir/src/boardUI.cpp.o.d"
+  "CMakeFiles/main.exe.dir/src/positionBase.cpp.o"
+  "CMakeFiles/main.exe.dir/src/positionBase.cpp.o.d"
 )
 
 # Per-language clean rules from dependency scanning.

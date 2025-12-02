@@ -83,30 +83,30 @@ CMakeFiles/main.exe.dir/app/main.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/main.exe.dir/app/main.cpp.s"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/kiwi/documents/cpp/chess/app/main.cpp -o CMakeFiles/main.exe.dir/app/main.cpp.s
 
-CMakeFiles/main.exe.dir/src/boardUI.cpp.o: CMakeFiles/main.exe.dir/flags.make
-CMakeFiles/main.exe.dir/src/boardUI.cpp.o: ../src/boardUI.cpp
-CMakeFiles/main.exe.dir/src/boardUI.cpp.o: CMakeFiles/main.exe.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/kiwi/documents/cpp/chess/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/main.exe.dir/src/boardUI.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/main.exe.dir/src/boardUI.cpp.o -MF CMakeFiles/main.exe.dir/src/boardUI.cpp.o.d -o CMakeFiles/main.exe.dir/src/boardUI.cpp.o -c /home/kiwi/documents/cpp/chess/src/boardUI.cpp
+CMakeFiles/main.exe.dir/src/positionBase.cpp.o: CMakeFiles/main.exe.dir/flags.make
+CMakeFiles/main.exe.dir/src/positionBase.cpp.o: ../src/positionBase.cpp
+CMakeFiles/main.exe.dir/src/positionBase.cpp.o: CMakeFiles/main.exe.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/kiwi/documents/cpp/chess/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/main.exe.dir/src/positionBase.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/main.exe.dir/src/positionBase.cpp.o -MF CMakeFiles/main.exe.dir/src/positionBase.cpp.o.d -o CMakeFiles/main.exe.dir/src/positionBase.cpp.o -c /home/kiwi/documents/cpp/chess/src/positionBase.cpp
 
-CMakeFiles/main.exe.dir/src/boardUI.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/main.exe.dir/src/boardUI.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/kiwi/documents/cpp/chess/src/boardUI.cpp > CMakeFiles/main.exe.dir/src/boardUI.cpp.i
+CMakeFiles/main.exe.dir/src/positionBase.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/main.exe.dir/src/positionBase.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/kiwi/documents/cpp/chess/src/positionBase.cpp > CMakeFiles/main.exe.dir/src/positionBase.cpp.i
 
-CMakeFiles/main.exe.dir/src/boardUI.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/main.exe.dir/src/boardUI.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/kiwi/documents/cpp/chess/src/boardUI.cpp -o CMakeFiles/main.exe.dir/src/boardUI.cpp.s
+CMakeFiles/main.exe.dir/src/positionBase.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/main.exe.dir/src/positionBase.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/kiwi/documents/cpp/chess/src/positionBase.cpp -o CMakeFiles/main.exe.dir/src/positionBase.cpp.s
 
 # Object files for target main.exe
 main_exe_OBJECTS = \
 "CMakeFiles/main.exe.dir/app/main.cpp.o" \
-"CMakeFiles/main.exe.dir/src/boardUI.cpp.o"
+"CMakeFiles/main.exe.dir/src/positionBase.cpp.o"
 
 # External object files for target main.exe
 main_exe_EXTERNAL_OBJECTS =
 
 ../bin/main.exe: CMakeFiles/main.exe.dir/app/main.cpp.o
-../bin/main.exe: CMakeFiles/main.exe.dir/src/boardUI.cpp.o
+../bin/main.exe: CMakeFiles/main.exe.dir/src/positionBase.cpp.o
 ../bin/main.exe: CMakeFiles/main.exe.dir/build.make
 ../bin/main.exe: /usr/lib/x86_64-linux-gnu/libsfml-graphics.so.2.5.1
 ../bin/main.exe: /usr/lib/x86_64-linux-gnu/libsfml-window.so.2.5.1

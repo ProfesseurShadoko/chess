@@ -35,6 +35,12 @@ enum class Figure : uint32_t {
 
 using Square = uint32_t; // 0-63 for 64 squares on the board
 using Piece = uint32_t; // sum of color and figure, e.g., WHITE | PAWN
+using SquarePiece = uint64_t; // 8 bits for square (0-63) and 8 bits for piece (0-15) --> total 16 bits, stored in uint64_t for convenience
+
+
+// --------------------- //
+// !-- Piece Helpers --! //
+// --------------------- //
 
 /**
  * @brief Creates a Piece from a Color and a Figure.
@@ -120,6 +126,11 @@ inline constexpr char getCharFromPiece(Piece piece) {
     return c;
 }
 
+
+// ----------------------- //
+// !-- Squares Helpers --! //
+// ----------------------- //
+
 /**
  * @brief Returns the row of a square (uint32_t) on the chessboard.
  * 
@@ -188,6 +199,50 @@ inline constexpr Color operator~(Color color) {
     return static_cast<Color>(static_cast<uint32_t>(color) ^ 0b1000); // flip the color
 }
 
+
+// --------------------------- //
+// !-- SquarePiece Helpers --! //
+// --------------------------- //
+
+/**
+ * @brief Creates a SquarePiece from a Square and a Piece.
+ * 
+ * This function combines the square and piece into a single SquarePiece value (an integer). Bit manipulations will
+ * allow us to extract the square and piece from the SquarePiece later.
+ * 
+ * @param square The square index (0-63).
+ * @param piece The piece (0-15).
+ * @return The combined SquarePiece value, SquarePiece being an alias for uint64_t.
+ */
+inline constexpr SquarePiece makeSquarePiece(Square square, Piece piece) {
+    return (static_cast<SquarePiece>(square) << 8) | static_cast<SquarePiece>(piece);
+}
+
+/**
+ * @brief Extracts the Square from a SquarePiece.
+ * 
+ * @param pair The SquarePiece value.
+ * @return The extracted Square (0-63).
+ */
+inline constexpr Square getSquareFromPair(SquarePiece pair) {
+    return static_cast<Square>((pair >> 8) & 0xFF); // extract the first 8 bits
+}
+
+/**
+ * @brief Extracts the Piece from a SquarePiece.
+ * 
+ * @param pair The SquarePiece value.
+ * @return The extracted Piece (0-15).
+ */
+inline constexpr Piece getPieceFromPair(SquarePiece pair) {
+    return static_cast<Piece>(pair & 0xFF); // extract the last 8 bits
+}
+
+
+
+// ------------------- //
+// !-- Undo Struct --! //
+// ------------------- //
 
 /**
  * @brief Stores information needed to undo a move in a chess engine.

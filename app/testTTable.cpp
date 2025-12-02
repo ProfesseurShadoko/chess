@@ -3,7 +3,7 @@
 #include "move.hpp"
 #include "boardUI.hpp"
 #include <string>
-#include "ttableBase.hpp"
+#include "ttable.hpp"
 
 int main() {
     Message("Testing file ttableBase.hpp");
@@ -14,7 +14,7 @@ int main() {
 
     Test test("TTableBase Initialization");
     uint32_t requestedsize_in_mb = 128;
-    TTableBase ttable(requestedsize_in_mb); // 128 MB
+    TTable ttable(requestedsize_in_mb); // 128 MB
 
     // display size in number of entries
     uint32_t num_entries = ttable.getSize();

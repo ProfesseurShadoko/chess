@@ -117,41 +117,65 @@ depend:
 .PHONY : depend
 
 #=============================================================================
-# Target rules for targets named testUCIWrapper.exe
+# Target rules for targets named testMove.exe
 
 # Build rule for target.
-testUCIWrapper.exe: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 testUCIWrapper.exe
-.PHONY : testUCIWrapper.exe
+testMove.exe: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 testMove.exe
+.PHONY : testMove.exe
 
 # fast build rule for target.
-testUCIWrapper.exe/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/testUCIWrapper.exe.dir/build.make CMakeFiles/testUCIWrapper.exe.dir/build
-.PHONY : testUCIWrapper.exe/fast
+testMove.exe/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/testMove.exe.dir/build.make CMakeFiles/testMove.exe.dir/build
+.PHONY : testMove.exe/fast
 
-app/testUCIWrapper.o: app/testUCIWrapper.cpp.o
-.PHONY : app/testUCIWrapper.o
+app/testMove.o: app/testMove.cpp.o
+.PHONY : app/testMove.o
 
 # target to build an object file
-app/testUCIWrapper.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/testUCIWrapper.exe.dir/build.make CMakeFiles/testUCIWrapper.exe.dir/app/testUCIWrapper.cpp.o
-.PHONY : app/testUCIWrapper.cpp.o
+app/testMove.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/testMove.exe.dir/build.make CMakeFiles/testMove.exe.dir/app/testMove.cpp.o
+.PHONY : app/testMove.cpp.o
 
-app/testUCIWrapper.i: app/testUCIWrapper.cpp.i
-.PHONY : app/testUCIWrapper.i
+app/testMove.i: app/testMove.cpp.i
+.PHONY : app/testMove.i
 
 # target to preprocess a source file
-app/testUCIWrapper.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/testUCIWrapper.exe.dir/build.make CMakeFiles/testUCIWrapper.exe.dir/app/testUCIWrapper.cpp.i
-.PHONY : app/testUCIWrapper.cpp.i
+app/testMove.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/testMove.exe.dir/build.make CMakeFiles/testMove.exe.dir/app/testMove.cpp.i
+.PHONY : app/testMove.cpp.i
 
-app/testUCIWrapper.s: app/testUCIWrapper.cpp.s
-.PHONY : app/testUCIWrapper.s
+app/testMove.s: app/testMove.cpp.s
+.PHONY : app/testMove.s
 
 # target to generate assembly for a file
-app/testUCIWrapper.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/testUCIWrapper.exe.dir/build.make CMakeFiles/testUCIWrapper.exe.dir/app/testUCIWrapper.cpp.s
-.PHONY : app/testUCIWrapper.cpp.s
+app/testMove.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/testMove.exe.dir/build.make CMakeFiles/testMove.exe.dir/app/testMove.cpp.s
+.PHONY : app/testMove.cpp.s
+
+src/positionBase.o: src/positionBase.cpp.o
+.PHONY : src/positionBase.o
+
+# target to build an object file
+src/positionBase.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/testMove.exe.dir/build.make CMakeFiles/testMove.exe.dir/src/positionBase.cpp.o
+.PHONY : src/positionBase.cpp.o
+
+src/positionBase.i: src/positionBase.cpp.i
+.PHONY : src/positionBase.i
+
+# target to preprocess a source file
+src/positionBase.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/testMove.exe.dir/build.make CMakeFiles/testMove.exe.dir/src/positionBase.cpp.i
+.PHONY : src/positionBase.cpp.i
+
+src/positionBase.s: src/positionBase.cpp.s
+.PHONY : src/positionBase.s
+
+# target to generate assembly for a file
+src/positionBase.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/testMove.exe.dir/build.make CMakeFiles/testMove.exe.dir/src/positionBase.cpp.s
+.PHONY : src/positionBase.cpp.s
 
 # Help Target
 help:
@@ -161,10 +185,13 @@ help:
 	@echo "... depend"
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
-	@echo "... testUCIWrapper.exe"
-	@echo "... app/testUCIWrapper.o"
-	@echo "... app/testUCIWrapper.i"
-	@echo "... app/testUCIWrapper.s"
+	@echo "... testMove.exe"
+	@echo "... app/testMove.o"
+	@echo "... app/testMove.i"
+	@echo "... app/testMove.s"
+	@echo "... src/positionBase.o"
+	@echo "... src/positionBase.i"
+	@echo "... src/positionBase.s"
 .PHONY : help
 
 

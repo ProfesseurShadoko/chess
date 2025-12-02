@@ -83,20 +83,36 @@ CMakeFiles/testUCIWrapper.exe.dir/app/testUCIWrapper.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/testUCIWrapper.exe.dir/app/testUCIWrapper.cpp.s"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/kiwi/documents/cpp/chess/app/testUCIWrapper.cpp -o CMakeFiles/testUCIWrapper.exe.dir/app/testUCIWrapper.cpp.s
 
+CMakeFiles/testUCIWrapper.exe.dir/src/positionBase.cpp.o: CMakeFiles/testUCIWrapper.exe.dir/flags.make
+CMakeFiles/testUCIWrapper.exe.dir/src/positionBase.cpp.o: ../src/positionBase.cpp
+CMakeFiles/testUCIWrapper.exe.dir/src/positionBase.cpp.o: CMakeFiles/testUCIWrapper.exe.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/kiwi/documents/cpp/chess/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/testUCIWrapper.exe.dir/src/positionBase.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/testUCIWrapper.exe.dir/src/positionBase.cpp.o -MF CMakeFiles/testUCIWrapper.exe.dir/src/positionBase.cpp.o.d -o CMakeFiles/testUCIWrapper.exe.dir/src/positionBase.cpp.o -c /home/kiwi/documents/cpp/chess/src/positionBase.cpp
+
+CMakeFiles/testUCIWrapper.exe.dir/src/positionBase.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/testUCIWrapper.exe.dir/src/positionBase.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/kiwi/documents/cpp/chess/src/positionBase.cpp > CMakeFiles/testUCIWrapper.exe.dir/src/positionBase.cpp.i
+
+CMakeFiles/testUCIWrapper.exe.dir/src/positionBase.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/testUCIWrapper.exe.dir/src/positionBase.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/kiwi/documents/cpp/chess/src/positionBase.cpp -o CMakeFiles/testUCIWrapper.exe.dir/src/positionBase.cpp.s
+
 # Object files for target testUCIWrapper.exe
 testUCIWrapper_exe_OBJECTS = \
-"CMakeFiles/testUCIWrapper.exe.dir/app/testUCIWrapper.cpp.o"
+"CMakeFiles/testUCIWrapper.exe.dir/app/testUCIWrapper.cpp.o" \
+"CMakeFiles/testUCIWrapper.exe.dir/src/positionBase.cpp.o"
 
 # External object files for target testUCIWrapper.exe
 testUCIWrapper_exe_EXTERNAL_OBJECTS =
 
 ../bin/testUCIWrapper.exe: CMakeFiles/testUCIWrapper.exe.dir/app/testUCIWrapper.cpp.o
+../bin/testUCIWrapper.exe: CMakeFiles/testUCIWrapper.exe.dir/src/positionBase.cpp.o
 ../bin/testUCIWrapper.exe: CMakeFiles/testUCIWrapper.exe.dir/build.make
 ../bin/testUCIWrapper.exe: /usr/lib/x86_64-linux-gnu/libsfml-graphics.so.2.5.1
 ../bin/testUCIWrapper.exe: /usr/lib/x86_64-linux-gnu/libsfml-window.so.2.5.1
 ../bin/testUCIWrapper.exe: /usr/lib/x86_64-linux-gnu/libsfml-system.so.2.5.1
 ../bin/testUCIWrapper.exe: CMakeFiles/testUCIWrapper.exe.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/kiwi/documents/cpp/chess/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX executable ../bin/testUCIWrapper.exe"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/kiwi/documents/cpp/chess/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Linking CXX executable ../bin/testUCIWrapper.exe"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/testUCIWrapper.exe.dir/link.txt --verbose=$(VERBOSE)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold "Running testUCIWrapper.exe after build"
 	/usr/bin/cmake -E echo 

@@ -17,6 +17,8 @@ find_package(SFML 2.5 COMPONENTS graphics window system REQUIRED)
 # !-- Add inc and src files --! #
 include_directories(("${CMAKE_SOURCE_DIR}/inc"))
 include_directories(("${CMAKE_SOURCE_DIR}/inc/utils"))
+include_directories(("${CMAKE_SOURCE_DIR}/inc/base_classes"))
+
 file(GLOB_RECURSE SOURCES "src/*.cpp")
 
 # !-- Define target --! #

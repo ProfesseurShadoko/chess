@@ -32,14 +32,14 @@ struct TTEntry {
 };
 
 
-class TTableBase {
+class TTable {
 
     private:
         uint32_t size = 0; // number of entries
         std::vector<TTEntry> table;
 
     public:
-        TTableBase(uint32_t sizeInMB = 64) {
+        TTable(uint32_t sizeInMB = 64) {
             // check that we do not overflow uint_32_t
             if (sizeInMB > (UINT32_MAX / (1024 * 1024 / sizeof(TTEntry)))) {
                 throw std::invalid_argument("Transposition table size is too large.");

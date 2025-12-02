@@ -108,7 +108,7 @@ uint32_t PositionBase::getNewCastlingRights(const Move& move) const {
         newRights &= 0b1110; // remove black queenside castling rights
     }
     if (move.getFrom() == 63 || move.getTo() == 63) {
-        newRights &= 0b0001; // remove black kingside castling rights
+        newRights &= 0b1101; // remove black kingside castling rights
     }
 
     return newRights;
@@ -256,6 +256,9 @@ void PositionBase::unplay() {
     restoreHash(lastMove); // restore the hash from the last move by reapplying XOR
     removeFromPositionHistory(zobristKey); // remove the last position from the history
 
+    // update draw by repetition flag
+    _isDrawByRepetition = false; // reset the flag // indeed, if previous position was already daw by repetition, we wouldn't have bothered looking further!
+
     // switch active color
     activeColor = ~activeColor;
     // update fullmoveClock
@@ -361,7 +364,7 @@ void PositionBase::updateHash(const Move& move) {
     // 5) Move is enPassant --> remove the pawn that was captured
     if (move.isEnPassant()) {
         Square enPassantSquare = move.getEnPassantSquare();
-        Piece enPassantPiece = makePiece(getColor(piece), Figure::PAWN);
+        Piece enPassantPiece = makePiece(~getColor(piece), Figure::PAWN);
         zobristKey ^= pieceKeys[static_cast<uint32_t>(getColor(enPassantPiece)) >> 3][static_cast<uint32_t>(getFigure(enPassantPiece)) - 1][enPassantSquare];
     }
 
