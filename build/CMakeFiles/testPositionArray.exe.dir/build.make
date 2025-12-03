@@ -83,10 +83,38 @@ CMakeFiles/testPositionArray.exe.dir/app/testPositionArray.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/testPositionArray.exe.dir/app/testPositionArray.cpp.s"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/kiwi/documents/cpp/chess/app/testPositionArray.cpp -o CMakeFiles/testPositionArray.exe.dir/app/testPositionArray.cpp.s
 
+CMakeFiles/testPositionArray.exe.dir/src/base_classes/positionBase.cpp.o: CMakeFiles/testPositionArray.exe.dir/flags.make
+CMakeFiles/testPositionArray.exe.dir/src/base_classes/positionBase.cpp.o: ../src/base_classes/positionBase.cpp
+CMakeFiles/testPositionArray.exe.dir/src/base_classes/positionBase.cpp.o: CMakeFiles/testPositionArray.exe.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/kiwi/documents/cpp/chess/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/testPositionArray.exe.dir/src/base_classes/positionBase.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/testPositionArray.exe.dir/src/base_classes/positionBase.cpp.o -MF CMakeFiles/testPositionArray.exe.dir/src/base_classes/positionBase.cpp.o.d -o CMakeFiles/testPositionArray.exe.dir/src/base_classes/positionBase.cpp.o -c /home/kiwi/documents/cpp/chess/src/base_classes/positionBase.cpp
+
+CMakeFiles/testPositionArray.exe.dir/src/base_classes/positionBase.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/testPositionArray.exe.dir/src/base_classes/positionBase.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/kiwi/documents/cpp/chess/src/base_classes/positionBase.cpp > CMakeFiles/testPositionArray.exe.dir/src/base_classes/positionBase.cpp.i
+
+CMakeFiles/testPositionArray.exe.dir/src/base_classes/positionBase.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/testPositionArray.exe.dir/src/base_classes/positionBase.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/kiwi/documents/cpp/chess/src/base_classes/positionBase.cpp -o CMakeFiles/testPositionArray.exe.dir/src/base_classes/positionBase.cpp.s
+
+CMakeFiles/testPositionArray.exe.dir/src/base_classes/positionStructureBase.cpp.o: CMakeFiles/testPositionArray.exe.dir/flags.make
+CMakeFiles/testPositionArray.exe.dir/src/base_classes/positionStructureBase.cpp.o: ../src/base_classes/positionStructureBase.cpp
+CMakeFiles/testPositionArray.exe.dir/src/base_classes/positionStructureBase.cpp.o: CMakeFiles/testPositionArray.exe.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/kiwi/documents/cpp/chess/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/testPositionArray.exe.dir/src/base_classes/positionStructureBase.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/testPositionArray.exe.dir/src/base_classes/positionStructureBase.cpp.o -MF CMakeFiles/testPositionArray.exe.dir/src/base_classes/positionStructureBase.cpp.o.d -o CMakeFiles/testPositionArray.exe.dir/src/base_classes/positionStructureBase.cpp.o -c /home/kiwi/documents/cpp/chess/src/base_classes/positionStructureBase.cpp
+
+CMakeFiles/testPositionArray.exe.dir/src/base_classes/positionStructureBase.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/testPositionArray.exe.dir/src/base_classes/positionStructureBase.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/kiwi/documents/cpp/chess/src/base_classes/positionStructureBase.cpp > CMakeFiles/testPositionArray.exe.dir/src/base_classes/positionStructureBase.cpp.i
+
+CMakeFiles/testPositionArray.exe.dir/src/base_classes/positionStructureBase.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/testPositionArray.exe.dir/src/base_classes/positionStructureBase.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/kiwi/documents/cpp/chess/src/base_classes/positionStructureBase.cpp -o CMakeFiles/testPositionArray.exe.dir/src/base_classes/positionStructureBase.cpp.s
+
 CMakeFiles/testPositionArray.exe.dir/src/positionAsArray.cpp.o: CMakeFiles/testPositionArray.exe.dir/flags.make
 CMakeFiles/testPositionArray.exe.dir/src/positionAsArray.cpp.o: ../src/positionAsArray.cpp
 CMakeFiles/testPositionArray.exe.dir/src/positionAsArray.cpp.o: CMakeFiles/testPositionArray.exe.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/kiwi/documents/cpp/chess/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/testPositionArray.exe.dir/src/positionAsArray.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/kiwi/documents/cpp/chess/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/testPositionArray.exe.dir/src/positionAsArray.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/testPositionArray.exe.dir/src/positionAsArray.cpp.o -MF CMakeFiles/testPositionArray.exe.dir/src/positionAsArray.cpp.o.d -o CMakeFiles/testPositionArray.exe.dir/src/positionAsArray.cpp.o -c /home/kiwi/documents/cpp/chess/src/positionAsArray.cpp
 
 CMakeFiles/testPositionArray.exe.dir/src/positionAsArray.cpp.i: cmake_force
@@ -97,38 +125,26 @@ CMakeFiles/testPositionArray.exe.dir/src/positionAsArray.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/testPositionArray.exe.dir/src/positionAsArray.cpp.s"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/kiwi/documents/cpp/chess/src/positionAsArray.cpp -o CMakeFiles/testPositionArray.exe.dir/src/positionAsArray.cpp.s
 
-CMakeFiles/testPositionArray.exe.dir/src/positionBase.cpp.o: CMakeFiles/testPositionArray.exe.dir/flags.make
-CMakeFiles/testPositionArray.exe.dir/src/positionBase.cpp.o: ../src/positionBase.cpp
-CMakeFiles/testPositionArray.exe.dir/src/positionBase.cpp.o: CMakeFiles/testPositionArray.exe.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/kiwi/documents/cpp/chess/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/testPositionArray.exe.dir/src/positionBase.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/testPositionArray.exe.dir/src/positionBase.cpp.o -MF CMakeFiles/testPositionArray.exe.dir/src/positionBase.cpp.o.d -o CMakeFiles/testPositionArray.exe.dir/src/positionBase.cpp.o -c /home/kiwi/documents/cpp/chess/src/positionBase.cpp
-
-CMakeFiles/testPositionArray.exe.dir/src/positionBase.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/testPositionArray.exe.dir/src/positionBase.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/kiwi/documents/cpp/chess/src/positionBase.cpp > CMakeFiles/testPositionArray.exe.dir/src/positionBase.cpp.i
-
-CMakeFiles/testPositionArray.exe.dir/src/positionBase.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/testPositionArray.exe.dir/src/positionBase.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/kiwi/documents/cpp/chess/src/positionBase.cpp -o CMakeFiles/testPositionArray.exe.dir/src/positionBase.cpp.s
-
 # Object files for target testPositionArray.exe
 testPositionArray_exe_OBJECTS = \
 "CMakeFiles/testPositionArray.exe.dir/app/testPositionArray.cpp.o" \
-"CMakeFiles/testPositionArray.exe.dir/src/positionAsArray.cpp.o" \
-"CMakeFiles/testPositionArray.exe.dir/src/positionBase.cpp.o"
+"CMakeFiles/testPositionArray.exe.dir/src/base_classes/positionBase.cpp.o" \
+"CMakeFiles/testPositionArray.exe.dir/src/base_classes/positionStructureBase.cpp.o" \
+"CMakeFiles/testPositionArray.exe.dir/src/positionAsArray.cpp.o"
 
 # External object files for target testPositionArray.exe
 testPositionArray_exe_EXTERNAL_OBJECTS =
 
 ../bin/testPositionArray.exe: CMakeFiles/testPositionArray.exe.dir/app/testPositionArray.cpp.o
+../bin/testPositionArray.exe: CMakeFiles/testPositionArray.exe.dir/src/base_classes/positionBase.cpp.o
+../bin/testPositionArray.exe: CMakeFiles/testPositionArray.exe.dir/src/base_classes/positionStructureBase.cpp.o
 ../bin/testPositionArray.exe: CMakeFiles/testPositionArray.exe.dir/src/positionAsArray.cpp.o
-../bin/testPositionArray.exe: CMakeFiles/testPositionArray.exe.dir/src/positionBase.cpp.o
 ../bin/testPositionArray.exe: CMakeFiles/testPositionArray.exe.dir/build.make
 ../bin/testPositionArray.exe: /usr/lib/x86_64-linux-gnu/libsfml-graphics.so.2.5.1
 ../bin/testPositionArray.exe: /usr/lib/x86_64-linux-gnu/libsfml-window.so.2.5.1
 ../bin/testPositionArray.exe: /usr/lib/x86_64-linux-gnu/libsfml-system.so.2.5.1
 ../bin/testPositionArray.exe: CMakeFiles/testPositionArray.exe.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/kiwi/documents/cpp/chess/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Linking CXX executable ../bin/testPositionArray.exe"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/kiwi/documents/cpp/chess/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Linking CXX executable ../bin/testPositionArray.exe"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/testPositionArray.exe.dir/link.txt --verbose=$(VERBOSE)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold "Running testPositionArray.exe after build"
 	/usr/bin/cmake -E echo 

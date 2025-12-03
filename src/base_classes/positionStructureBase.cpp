@@ -42,8 +42,8 @@ void PositionStructureBase::playOnPosition(const Move& move) {
 
 
 void PositionStructureBase::unplayOnPosition(const Move& move) {
-    Square from = move.getFrom();
-    Square to = move.getTo();
+    Square from = move.getFrom(); // Castle: where the king comes from => e1 or e8
+    Square to = move.getTo(); // Castle: where the king went to => g1/c1 or g8/c8 depending on side
     Piece piece = move.getPiece();
     Piece captured = move.getCapture();
     Piece promotion = move.getPromotion();
@@ -56,18 +56,18 @@ void PositionStructureBase::unplayOnPosition(const Move& move) {
     if (move.isCastle()) {
         // the target square of the rook is the mean between from and to
         Square rookTo = (from + to) / 2;
-        // where was the rook originally?
+        // where was the rook originally? a or h file? if king went to the left (towards a file, hence col(to) < col(from)), rook was on a file, else h file
         int rookRow = getRow(from);
         Square rookFrom;
-        if (getCol(to) > getCol(from)) {
+        if (getCol(to) > getCol(from)) { // (white) king goes right -> king side
             // king-side castle
             rookFrom = rookRow * 8 + 7; // h-file
         } else {
             // queen-side castle
             rookFrom = rookRow * 8 + 0; // a-file
         }
-        playOnPosition(
-            Move(rookTo, rookFrom, getPieceAt(rookFrom))
+        unplayOnPosition(
+            Move(rookFrom, rookTo, getPieceAt(rookTo))
         );
     }
 

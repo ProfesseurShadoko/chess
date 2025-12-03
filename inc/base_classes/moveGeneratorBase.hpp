@@ -14,6 +14,10 @@ class MoveGeneratorBase {
             return {};
         }
 
+        virtual bool isInCheck(const PositionStructureType& position, Color color) const {
+            return false;
+        }
+
         // --------------------- //
         // !-- Play / Unplay --! //
         // --------------------- //

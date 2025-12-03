@@ -55,8 +55,7 @@ class MoveGeneratorForArray : public MoveGeneratorBase<PosStructAsArray> {
         std::vector<int> getDirectionalOffsets(Figure figure) const;
 
         bool isLegalMove(PosStructAsArray& position, const Move& move) const;
-
-        bool isValidPosition(PosStructAsArray& position, Color sideToMove) const;
+        bool isInCheck(const PosStructAsArray& position, Color color) const override;
 };
 
 

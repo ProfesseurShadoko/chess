@@ -3,10 +3,12 @@ file(REMOVE_RECURSE
   "../bin/testPositionArray.exe.pdb"
   "CMakeFiles/testPositionArray.exe.dir/app/testPositionArray.cpp.o"
   "CMakeFiles/testPositionArray.exe.dir/app/testPositionArray.cpp.o.d"
+  "CMakeFiles/testPositionArray.exe.dir/src/base_classes/positionBase.cpp.o"
+  "CMakeFiles/testPositionArray.exe.dir/src/base_classes/positionBase.cpp.o.d"
+  "CMakeFiles/testPositionArray.exe.dir/src/base_classes/positionStructureBase.cpp.o"
+  "CMakeFiles/testPositionArray.exe.dir/src/base_classes/positionStructureBase.cpp.o.d"
   "CMakeFiles/testPositionArray.exe.dir/src/positionAsArray.cpp.o"
   "CMakeFiles/testPositionArray.exe.dir/src/positionAsArray.cpp.o.d"
-  "CMakeFiles/testPositionArray.exe.dir/src/positionBase.cpp.o"
-  "CMakeFiles/testPositionArray.exe.dir/src/positionBase.cpp.o.d"
 )
 
 # Per-language clean rules from dependency scanning.

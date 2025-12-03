@@ -153,6 +153,54 @@ app/testPositionArray.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/testPositionArray.exe.dir/build.make CMakeFiles/testPositionArray.exe.dir/app/testPositionArray.cpp.s
 .PHONY : app/testPositionArray.cpp.s
 
+src/base_classes/positionBase.o: src/base_classes/positionBase.cpp.o
+.PHONY : src/base_classes/positionBase.o
+
+# target to build an object file
+src/base_classes/positionBase.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/testPositionArray.exe.dir/build.make CMakeFiles/testPositionArray.exe.dir/src/base_classes/positionBase.cpp.o
+.PHONY : src/base_classes/positionBase.cpp.o
+
+src/base_classes/positionBase.i: src/base_classes/positionBase.cpp.i
+.PHONY : src/base_classes/positionBase.i
+
+# target to preprocess a source file
+src/base_classes/positionBase.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/testPositionArray.exe.dir/build.make CMakeFiles/testPositionArray.exe.dir/src/base_classes/positionBase.cpp.i
+.PHONY : src/base_classes/positionBase.cpp.i
+
+src/base_classes/positionBase.s: src/base_classes/positionBase.cpp.s
+.PHONY : src/base_classes/positionBase.s
+
+# target to generate assembly for a file
+src/base_classes/positionBase.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/testPositionArray.exe.dir/build.make CMakeFiles/testPositionArray.exe.dir/src/base_classes/positionBase.cpp.s
+.PHONY : src/base_classes/positionBase.cpp.s
+
+src/base_classes/positionStructureBase.o: src/base_classes/positionStructureBase.cpp.o
+.PHONY : src/base_classes/positionStructureBase.o
+
+# target to build an object file
+src/base_classes/positionStructureBase.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/testPositionArray.exe.dir/build.make CMakeFiles/testPositionArray.exe.dir/src/base_classes/positionStructureBase.cpp.o
+.PHONY : src/base_classes/positionStructureBase.cpp.o
+
+src/base_classes/positionStructureBase.i: src/base_classes/positionStructureBase.cpp.i
+.PHONY : src/base_classes/positionStructureBase.i
+
+# target to preprocess a source file
+src/base_classes/positionStructureBase.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/testPositionArray.exe.dir/build.make CMakeFiles/testPositionArray.exe.dir/src/base_classes/positionStructureBase.cpp.i
+.PHONY : src/base_classes/positionStructureBase.cpp.i
+
+src/base_classes/positionStructureBase.s: src/base_classes/positionStructureBase.cpp.s
+.PHONY : src/base_classes/positionStructureBase.s
+
+# target to generate assembly for a file
+src/base_classes/positionStructureBase.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/testPositionArray.exe.dir/build.make CMakeFiles/testPositionArray.exe.dir/src/base_classes/positionStructureBase.cpp.s
+.PHONY : src/base_classes/positionStructureBase.cpp.s
+
 src/positionAsArray.o: src/positionAsArray.cpp.o
 .PHONY : src/positionAsArray.o
 
@@ -177,30 +225,6 @@ src/positionAsArray.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/testPositionArray.exe.dir/build.make CMakeFiles/testPositionArray.exe.dir/src/positionAsArray.cpp.s
 .PHONY : src/positionAsArray.cpp.s
 
-src/positionBase.o: src/positionBase.cpp.o
-.PHONY : src/positionBase.o
-
-# target to build an object file
-src/positionBase.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/testPositionArray.exe.dir/build.make CMakeFiles/testPositionArray.exe.dir/src/positionBase.cpp.o
-.PHONY : src/positionBase.cpp.o
-
-src/positionBase.i: src/positionBase.cpp.i
-.PHONY : src/positionBase.i
-
-# target to preprocess a source file
-src/positionBase.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/testPositionArray.exe.dir/build.make CMakeFiles/testPositionArray.exe.dir/src/positionBase.cpp.i
-.PHONY : src/positionBase.cpp.i
-
-src/positionBase.s: src/positionBase.cpp.s
-.PHONY : src/positionBase.s
-
-# target to generate assembly for a file
-src/positionBase.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/testPositionArray.exe.dir/build.make CMakeFiles/testPositionArray.exe.dir/src/positionBase.cpp.s
-.PHONY : src/positionBase.cpp.s
-
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -213,12 +237,15 @@ help:
 	@echo "... app/testPositionArray.o"
 	@echo "... app/testPositionArray.i"
 	@echo "... app/testPositionArray.s"
+	@echo "... src/base_classes/positionBase.o"
+	@echo "... src/base_classes/positionBase.i"
+	@echo "... src/base_classes/positionBase.s"
+	@echo "... src/base_classes/positionStructureBase.o"
+	@echo "... src/base_classes/positionStructureBase.i"
+	@echo "... src/base_classes/positionStructureBase.s"
 	@echo "... src/positionAsArray.o"
 	@echo "... src/positionAsArray.i"
 	@echo "... src/positionAsArray.s"
-	@echo "... src/positionBase.o"
-	@echo "... src/positionBase.i"
-	@echo "... src/positionBase.s"
 .PHONY : help
 
 

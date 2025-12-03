@@ -28,8 +28,10 @@ void PositionBase::setPieceOnBoardUI(Square square, Piece piece, BoardUI& boardU
 }
 
 void PositionBase::fromFEN(const std::string& fen) {
+    Message::mute();
     BoardUI board;
     board.fromFEN(fen);
+    Message::unmute();
 
     // 1) Set the variables
     activeColor = board.activeColor == 'w' ? Color::WHITE : Color::BLACK;
@@ -61,7 +63,9 @@ void PositionBase::fromFEN(const std::string& fen) {
 }
 
 std::string PositionBase::toFEN() const {
+    Message::mute();
     BoardUI board;
+    Message::unmute();
 
     // 1) Set variabels from BoardUI
     board.activeColor = (activeColor == Color::WHITE) ? 'w' : 'b';
@@ -267,7 +271,7 @@ void PositionBase::unplay() {
     // switch active color
     activeColor = ~activeColor;
     // update fullmoveClock
-    if (activeColor == Color::WHITE) {
+    if (activeColor == Color::BLACK) {
         fullmoveClock--; // we are going back one move, so we decrease the fullmove
     }
 
@@ -447,6 +451,9 @@ void PositionBase::display() {
     Message::print("Draw by Repetition: " + std::string(isDrawByRepetition() ? "Yes" : "No"));
     Message::print("Draw by 50-move rule: " + std::string(isDrawBy50Moves() ? "Yes" : "No"));
     Message::print("Draw by insufficient material: " + std::string(isDrawByInsufficientMaterial() ? "Yes" : "No"));
+    Message::print("Draw by Stale Mate: " + std::string(isDrawByStalemate() ? "Yes" : "No"));
+    Message::print("Check Mate: " + std::string(isCheckMate() ? "Yes" : "No"));
+    
     Message::print("Piece Count:");
     Message::tab();
     Message::print("White Pawns: " + std::to_string(pieceCount[0][static_cast<uint32_t>(Figure::PAWN)]));

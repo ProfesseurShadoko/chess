@@ -179,6 +179,20 @@ class PositionBase {
             return false; // TODO: implement this!!
         };
 
+        bool isDrawByStalemate() {
+            // if the side to move has no legal moves and is not in check
+            std::vector<Move> legalMoves = getLegalMoves();
+            return legalMoves.empty() && !isInCheck(activeColor);
+        }
+
+        bool isCheckMate() {
+            // if the side to move has no legal moves and is in check
+            std::vector<Move> legalMoves = getLegalMoves();
+            return legalMoves.empty() && isInCheck(activeColor);
+        }
+
+        virtual bool isInCheck(Color color) const = 0;
+
         Square getEnPassantSquare() const {
             return enPassantSquare;
         }
@@ -326,6 +340,10 @@ class PositionBaseT : public PositionBase {
 
         std::vector<Move> getLegalMoves() override {
             return moveGenerator.getLegalMoves(structure, getActiveColor(), getEnPassantSquare(), getCastlingRights());
+        }
+
+        bool isInCheck(Color color) const override {
+            return moveGenerator.isInCheck(structure, color);
         }
 
         

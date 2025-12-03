@@ -258,16 +258,17 @@ std::vector<Move> MoveGeneratorForArray::getPseudoLegalMoves(const PosStructAsAr
 
 bool MoveGeneratorForArray::isLegalMove(PosStructAsArray& position, const Move& move) const {
     position.playOnPosition(move);
-    bool isValid = isValidPosition(position, ~getColor(move.getPiece())); // now that the move has been played, it is the opponent's turn
+    bool isValid = !isInCheck(position, getColor(move.getPiece())); // if white just played, white king should not be in check
     position.unplayOnPosition(move);
-    return !isValid;
+    return isValid;
 }
 
-bool MoveGeneratorForArray::isValidPosition(PosStructAsArray& position, Color sideToMove) const {
-    // Check wether opposite color king is in check
 
-    // 1. Generate all pseudo-legal moves for sideToMove
-    std::vector<Move> pseudoLegalMoves = getPseudoLegalMoves(position, sideToMove, 64, {false, false, false, false}); // no en passant square, no castling rights needed for this
+bool MoveGeneratorForArray::isInCheck(const PosStructAsArray& position, Color color) const {
+    // Check wether color king is in check
+
+    // 1. Generate all pseudo-legal moves for opposite color
+    std::vector<Move> pseudoLegalMoves = getPseudoLegalMoves(position, ~color, 64, {false, false, false, false}); // no en passant square, no castling rights needed for this
 
     // 2. Find wether any of these moves capture the king
     for (const Move& move : pseudoLegalMoves) {
