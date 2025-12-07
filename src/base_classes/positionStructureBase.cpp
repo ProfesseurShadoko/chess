@@ -1,6 +1,7 @@
 
 #include "positionStructureBase.hpp"
 #include "move.hpp"
+#include <tintoretto.hpp>
 
 
 void PositionStructureBase::playOnPosition(const Move& move) {
@@ -51,6 +52,7 @@ void PositionStructureBase::unplayOnPosition(const Move& move) {
     // Restore the piece
     setPieceAt(from, piece); // move back the piece
     setPieceAt(to, captured); // restore captured piece or empty square
+    
 
     // Was the move castle? if so, we must put back the rook
     if (move.isCastle()) {

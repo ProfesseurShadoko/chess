@@ -185,7 +185,7 @@ std::vector<Move> MoveGeneratorForArray::getPseudoLegalMoves(const PosStructAsAr
             Piece leftPiece = position.getPieceAt(leftSquare);
             if (getFigure(leftPiece) == Figure::PAWN && getColor(leftPiece) == sideToMove) {
                 moves.push_back(
-                    Move(leftSquare, enPassantSquare, leftPiece, makePiece(~sideToMove, Figure::PAWN))
+                    Move(leftSquare, enPassantSquare, leftPiece, makePiece(Color::WHITE, Figure::EMPTY))
                 );
             }
         }
@@ -193,7 +193,7 @@ std::vector<Move> MoveGeneratorForArray::getPseudoLegalMoves(const PosStructAsAr
             Piece rightPiece = position.getPieceAt(rightSquare);
             if (getFigure(rightPiece) == Figure::PAWN && getColor(rightPiece) == sideToMove) {
                 moves.push_back(
-                    Move(rightSquare, enPassantSquare, rightPiece, makePiece(~sideToMove, Figure::PAWN))
+                    Move(rightSquare, enPassantSquare, rightPiece, makePiece(Color::WHITE, Figure::EMPTY))
                 );
             }
         }
