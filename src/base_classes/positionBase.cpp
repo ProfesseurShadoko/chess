@@ -126,7 +126,25 @@ uint32_t PositionBase::getNewCastlingRights(const Move& move) const {
 Square PositionBase::getNewEnPassantSquare(const Move& move) const {
     Square newSquare = 64; // reset en passant square
     if (move.isDoubleAdvance()) {
-        newSquare = move.getEnPassantSquare();
+        // check wether there is a pawn of opposite color that could take en passant
+        // is there a pawn on the left square?
+        Square pawnSquare = move.getTo();
+        Square leftSquare = pawnSquare - 1;
+        Square rightSquare = pawnSquare + 1;
+
+        // check wether we wrap around the board
+        if (std::abs((int)getCol(leftSquare) - (int)getCol(pawnSquare)) == 1) {
+            Piece leftPiece = getPieceAt(leftSquare);
+            if (getFigure(leftPiece) == Figure::PAWN && getColor(leftPiece) == ~getColor(move.getPiece())) {
+                newSquare = move.getEnPassantSquare();
+            }
+        }
+        if (std::abs((int)getCol(rightSquare) - (int)getCol(pawnSquare)) == 1) {
+            Piece rightPiece = getPieceAt(rightSquare);
+            if (getFigure(rightPiece) == Figure::PAWN && getColor(rightPiece) == ~getColor(move.getPiece())) {
+                newSquare = move.getEnPassantSquare();
+            }
+        }
     }
     return newSquare;
 }
@@ -372,7 +390,7 @@ void PositionBase::updateHash(const Move& move) {
 
     // 5) Move is enPassant --> remove the pawn that was captured
     if (move.isEnPassant()) {
-        Square enPassantSquare = move.getEnPassantSquare();
+        Square enPassantSquare = makeSquare(getRow(move.getFrom()), getCol(move.getTo())); // square behind the pawn that moved
         Piece enPassantPiece = makePiece(~getColor(piece), Figure::PAWN);
         zobristKey ^= pieceKeys[static_cast<uint32_t>(getColor(enPassantPiece)) >> 3][static_cast<uint32_t>(getFigure(enPassantPiece)) - 1][enPassantSquare];
     }

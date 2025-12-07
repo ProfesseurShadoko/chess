@@ -65,6 +65,10 @@ inline constexpr Piece makePiece(Color color, Figure figure) {
  * @throws std::runtime_error If the character is not recognized as a valid piece.
  */
 inline constexpr Piece makePiece(char c) {
+    if (c == ' ' || c == '.' || c == '-') {
+        return makePiece(Color::WHITE, Figure::EMPTY); // empty square
+    }
+
     Color color = (c >= 'a' && c <= 'z') ? Color::BLACK : Color::WHITE;
     Figure figure = Figure::EMPTY;
     switch (std::tolower(c)) {
@@ -74,11 +78,11 @@ inline constexpr Piece makePiece(char c) {
         case 'r': figure = Figure::ROOK; break;
         case 'q': figure = Figure::QUEEN; break;
         case 'k': figure = Figure::KING; break;
-        case '.': figure = Figure::EMPTY; break; // empty square
         default: throw std::runtime_error("Unknown piece character");
     }
     return makePiece(color, figure);
 }
+
 
 /**
  * @brief Returns the color of a piece (uint32_t) by extracting the color bit.
@@ -161,6 +165,17 @@ inline const Square makeSquare(std::string square) {
     char col = square[0];
     char row = square[1];
     return (row - '1') * 8 + (col - 'a');
+}
+
+/**
+ * @brief Returns a square (an integer from 0 to 63) based on its row and column.
+ * 
+ * @param row The row index (0-7).
+ * @param col The column index (0-7).
+ * @return The corresponding Square object (integer).
+ */
+inline const Square makeSquare(uint32_t row, uint32_t col) {
+    return row * 8 + col;
 }
 
 /**

@@ -12,7 +12,7 @@ void PositionStructureBase::playOnPosition(const Move& move) {
 
     // Move the piece
     setPieceAt(to, move.isPromotion() ? promotion : piece); // handle promotion
-    setPieceAt(from, makePiece(Color::WHITE, Figure::EMPTY)); // empty the from square
+    setPieceAt(from, makePiece(' ')); // empty the from square
 
     // If this was castle, move the rook accordingly
     if (move.isCastle()) {
@@ -37,7 +37,7 @@ void PositionStructureBase::playOnPosition(const Move& move) {
     if (move.isEnPassant()) {
         // the pawn to remove is one square up (or down) from the to square
         Square pawnSquare = (getColor(piece) == Color::WHITE) ? to - 8 : to + 8;
-        setPieceAt(pawnSquare, makePiece(Color::WHITE, Figure::EMPTY));
+        setPieceAt(pawnSquare, makePiece(' '));
     }
 }
 

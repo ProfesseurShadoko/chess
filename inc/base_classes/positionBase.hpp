@@ -154,6 +154,9 @@ class PositionBase {
     public:
         /**
          * Updates state variables and calls playOnPosition to update the position.
+         * @param move The move to play.
+         * @param definitive If true, clears MoveHistory (a stack of Moves, needed to unplay), StateHistory (the UndoInfos necessary to unplay)
+         * and PositionHistory iff a piece is taken, a pawn advances (hence impossible to have a repetition of moves).
          */
         void play(const Move& move, bool definitive);
 

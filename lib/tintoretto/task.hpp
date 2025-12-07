@@ -110,6 +110,40 @@ class Test: public Task {
         print(label + ": " + checkResult);
     }
 
+    void check(std::string label, const std::string& a, const std::string& b) {
+        bool success = (a == b);
+        check(label, success);
+        check(label, a == b);
+        if (!success) {
+            tab();
+            print("Expected: " + cstr(b).purple());
+            print("Got:      " + cstr(a).purple());
+            untab();
+        }
+    }
+
+    void check(std::string label, int a, int b) {
+        bool success = (a == b);
+        check(label, success);
+        if (!success) {
+            tab();
+            print("Expected: " + cstr(std::to_string(b)).purple());
+            print("Got:      " + cstr(std::to_string(a)).purple());
+            untab();
+        }
+    }
+
+    void check(std::string label, double a, double b, double epsilon = 1e-9) {
+        bool success = (std::abs(a - b) < epsilon);
+        check(label, success);
+        if (!success) {
+            tab();
+            print("Expected: " + cstr(std::to_string(b)).purple());
+            print("Got:      " + cstr(std::to_string(a)).purple());
+            untab();
+        }
+    }
+
 
     bool isPassed() {
         return (checks == checksPassed);
