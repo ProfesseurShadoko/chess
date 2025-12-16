@@ -1,4 +1,4 @@
-# Install script for directory: /home/kiwi/documents/cpp/chess
+# Install script for directory: /home/jwehrung/Documents/code/perso/chess
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -50,5 +50,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "/home/kiwi/documents/cpp/chess/build/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "/home/jwehrung/Documents/code/perso/chess/build/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")

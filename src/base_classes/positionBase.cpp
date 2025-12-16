@@ -47,6 +47,7 @@ void PositionBase::fromFEN(const std::string& fen) {
     // 2) reset history of positions
     stateHistory.clear();
     moveHistory.clear(); // clear the move history
+    positionHistory.clear();
 
     // 2.5) reset board (I do not care for speed here as this isn't used in the search)
     for (Square square = 0; square < 64; square++) {

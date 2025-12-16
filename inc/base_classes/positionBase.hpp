@@ -236,6 +236,26 @@ class PositionBase {
          */
         virtual std::vector<Move> getLegalMoves() = 0;
 
+        /**
+         * @brief Perft function to count the number of possible positions up to a certain depth.
+         * @param depth The depth to search.
+         * @return The number of possible positions.
+         */
+        uint64_t perft(int depth) {
+            if (depth == 0) {
+                return 1;
+            }
+
+            uint64_t nodes = 0;
+            std::vector<Move> legalMoves = getLegalMoves();
+            for (const Move& move : legalMoves) {
+                play(move, false); // let's not count draws and all, here we just test move generation
+                nodes += perft(depth - 1);
+                unplay();
+            }
+            return nodes;
+        }
+
 
         // ------------------ //
         // !-- Evaluation --! //

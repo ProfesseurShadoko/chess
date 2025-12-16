@@ -1,6 +1,6 @@
 file(REMOVE_RECURSE
-  "../bin/testPositionArray.exe"
-  "../bin/testPositionArray.exe.pdb"
+  "/home/jwehrung/Documents/code/perso/chess/bin/testPositionArray.exe"
+  "/home/jwehrung/Documents/code/perso/chess/bin/testPositionArray.exe.pdb"
   "CMakeFiles/testPositionArray.exe.dir/app/testPositionArray.cpp.o"
   "CMakeFiles/testPositionArray.exe.dir/app/testPositionArray.cpp.o.d"
   "CMakeFiles/testPositionArray.exe.dir/src/base_classes/positionBase.cpp.o"

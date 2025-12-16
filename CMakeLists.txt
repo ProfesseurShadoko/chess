@@ -12,7 +12,7 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 # include libraries
 include_directories(lib/eigen) # Eigen is a header only library => no need for target_link_libraries
 include_directories(lib/tintoretto)
-find_package(SFML 2.5 COMPONENTS graphics window system REQUIRED)
+# find_package(SFML 2.5 COMPONENTS graphics window system REQUIRED)
 
 # !-- Add inc and src files --! #
 include_directories(("${CMAKE_SOURCE_DIR}/inc"))
@@ -43,7 +43,7 @@ set(EXECUTABLE_NAME ${EXECUTABLE_NAME}.exe) # main --> main.exe
 add_executable(${EXECUTABLE_NAME} app/${SCRIPT_NAME} ${SOURCES})
 
 # link libraries to executable
-target_link_libraries(${EXECUTABLE_NAME} sfml-graphics sfml-window sfml-system)
+# target_link_libraries(${EXECUTABLE_NAME} sfml-graphics sfml-window sfml-system)
 
 # say where we want to create our executable
 set_target_properties(${EXECUTABLE_NAME} PROPERTIES RUNTIME_OUTPUT_DIRECTORY ${CMAKE_SOURCE_DIR}/bin)

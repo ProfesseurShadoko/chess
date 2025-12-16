@@ -1,22 +1,26 @@
 [
 {
-  "directory": "/home/kiwi/documents/cpp/chess/build",
-  "command": "/usr/bin/c++  -I/home/kiwi/documents/cpp/chess/lib/eigen -I/home/kiwi/documents/cpp/chess/lib/tintoretto -I\"/home/kiwi/documents/cpp/chess/(\" -I/home/kiwi/documents/cpp/chess/inc -I\"/home/kiwi/documents/cpp/chess/)\" -I/home/kiwi/documents/cpp/chess/inc/utils -I/home/kiwi/documents/cpp/chess/inc/base_classes -g -std=gnu++17 -o CMakeFiles/testPositionArray.exe.dir/app/testPositionArray.cpp.o -c /home/kiwi/documents/cpp/chess/app/testPositionArray.cpp",
-  "file": "/home/kiwi/documents/cpp/chess/app/testPositionArray.cpp"
+  "directory": "/home/jwehrung/Documents/code/perso/chess/build",
+  "command": "/usr/bin/g++  -I/home/jwehrung/Documents/code/perso/chess/lib/eigen -I/home/jwehrung/Documents/code/perso/chess/lib/tintoretto -I\"/home/jwehrung/Documents/code/perso/chess/(\" -I/home/jwehrung/Documents/code/perso/chess/inc -I\"/home/jwehrung/Documents/code/perso/chess/)\" -I/home/jwehrung/Documents/code/perso/chess/inc/utils -I/home/jwehrung/Documents/code/perso/chess/inc/base_classes -g -std=gnu++17 -o CMakeFiles/testPositionArray.exe.dir/app/testPositionArray.cpp.o -c /home/jwehrung/Documents/code/perso/chess/app/testPositionArray.cpp",
+  "file": "/home/jwehrung/Documents/code/perso/chess/app/testPositionArray.cpp",
+  "output": "CMakeFiles/testPositionArray.exe.dir/app/testPositionArray.cpp.o"
 },
 {
-  "directory": "/home/kiwi/documents/cpp/chess/build",
-  "command": "/usr/bin/c++  -I/home/kiwi/documents/cpp/chess/lib/eigen -I/home/kiwi/documents/cpp/chess/lib/tintoretto -I\"/home/kiwi/documents/cpp/chess/(\" -I/home/kiwi/documents/cpp/chess/inc -I\"/home/kiwi/documents/cpp/chess/)\" -I/home/kiwi/documents/cpp/chess/inc/utils -I/home/kiwi/documents/cpp/chess/inc/base_classes -g -std=gnu++17 -o CMakeFiles/testPositionArray.exe.dir/src/base_classes/positionBase.cpp.o -c /home/kiwi/documents/cpp/chess/src/base_classes/positionBase.cpp",
-  "file": "/home/kiwi/documents/cpp/chess/src/base_classes/positionBase.cpp"
+  "directory": "/home/jwehrung/Documents/code/perso/chess/build",
+  "command": "/usr/bin/g++  -I/home/jwehrung/Documents/code/perso/chess/lib/eigen -I/home/jwehrung/Documents/code/perso/chess/lib/tintoretto -I\"/home/jwehrung/Documents/code/perso/chess/(\" -I/home/jwehrung/Documents/code/perso/chess/inc -I\"/home/jwehrung/Documents/code/perso/chess/)\" -I/home/jwehrung/Documents/code/perso/chess/inc/utils -I/home/jwehrung/Documents/code/perso/chess/inc/base_classes -g -std=gnu++17 -o CMakeFiles/testPositionArray.exe.dir/src/base_classes/positionBase.cpp.o -c /home/jwehrung/Documents/code/perso/chess/src/base_classes/positionBase.cpp",
+  "file": "/home/jwehrung/Documents/code/perso/chess/src/base_classes/positionBase.cpp",
+  "output": "CMakeFiles/testPositionArray.exe.dir/src/base_classes/positionBase.cpp.o"
 },
 {
-  "directory": "/home/kiwi/documents/cpp/chess/build",
-  "command": "/usr/bin/c++  -I/home/kiwi/documents/cpp/chess/lib/eigen -I/home/kiwi/documents/cpp/chess/lib/tintoretto -I\"/home/kiwi/documents/cpp/chess/(\" -I/home/kiwi/documents/cpp/chess/inc -I\"/home/kiwi/documents/cpp/chess/)\" -I/home/kiwi/documents/cpp/chess/inc/utils -I/home/kiwi/documents/cpp/chess/inc/base_classes -g -std=gnu++17 -o CMakeFiles/testPositionArray.exe.dir/src/base_classes/positionStructureBase.cpp.o -c /home/kiwi/documents/cpp/chess/src/base_classes/positionStructureBase.cpp",
-  "file": "/home/kiwi/documents/cpp/chess/src/base_classes/positionStructureBase.cpp"
+  "directory": "/home/jwehrung/Documents/code/perso/chess/build",
+  "command": "/usr/bin/g++  -I/home/jwehrung/Documents/code/perso/chess/lib/eigen -I/home/jwehrung/Documents/code/perso/chess/lib/tintoretto -I\"/home/jwehrung/Documents/code/perso/chess/(\" -I/home/jwehrung/Documents/code/perso/chess/inc -I\"/home/jwehrung/Documents/code/perso/chess/)\" -I/home/jwehrung/Documents/code/perso/chess/inc/utils -I/home/jwehrung/Documents/code/perso/chess/inc/base_classes -g -std=gnu++17 -o CMakeFiles/testPositionArray.exe.dir/src/base_classes/positionStructureBase.cpp.o -c /home/jwehrung/Documents/code/perso/chess/src/base_classes/positionStructureBase.cpp",
+  "file": "/home/jwehrung/Documents/code/perso/chess/src/base_classes/positionStructureBase.cpp",
+  "output": "CMakeFiles/testPositionArray.exe.dir/src/base_classes/positionStructureBase.cpp.o"
 },
 {
-  "directory": "/home/kiwi/documents/cpp/chess/build",
-  "command": "/usr/bin/c++  -I/home/kiwi/documents/cpp/chess/lib/eigen -I/home/kiwi/documents/cpp/chess/lib/tintoretto -I\"/home/kiwi/documents/cpp/chess/(\" -I/home/kiwi/documents/cpp/chess/inc -I\"/home/kiwi/documents/cpp/chess/)\" -I/home/kiwi/documents/cpp/chess/inc/utils -I/home/kiwi/documents/cpp/chess/inc/base_classes -g -std=gnu++17 -o CMakeFiles/testPositionArray.exe.dir/src/positionAsArray.cpp.o -c /home/kiwi/documents/cpp/chess/src/positionAsArray.cpp",
-  "file": "/home/kiwi/documents/cpp/chess/src/positionAsArray.cpp"
+  "directory": "/home/jwehrung/Documents/code/perso/chess/build",
+  "command": "/usr/bin/g++  -I/home/jwehrung/Documents/code/perso/chess/lib/eigen -I/home/jwehrung/Documents/code/perso/chess/lib/tintoretto -I\"/home/jwehrung/Documents/code/perso/chess/(\" -I/home/jwehrung/Documents/code/perso/chess/inc -I\"/home/jwehrung/Documents/code/perso/chess/)\" -I/home/jwehrung/Documents/code/perso/chess/inc/utils -I/home/jwehrung/Documents/code/perso/chess/inc/base_classes -g -std=gnu++17 -o CMakeFiles/testPositionArray.exe.dir/src/positionAsArray.cpp.o -c /home/jwehrung/Documents/code/perso/chess/src/positionAsArray.cpp",
+  "file": "/home/jwehrung/Documents/code/perso/chess/src/positionAsArray.cpp",
+  "output": "CMakeFiles/testPositionArray.exe.dir/src/positionAsArray.cpp.o"
 }
 ]

@@ -1,6 +1,6 @@
 #include <iostream>
 #include <Eigen/Dense>
-#include <SFML/Graphics.hpp>
+// #include <SFML/Graphics.hpp>
 #include <tintoretto.hpp>
 
 int main() {

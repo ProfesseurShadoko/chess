@@ -1,3 +1,3 @@
-/home/kiwi/documents/cpp/chess/build/CMakeFiles/testPositionArray.exe.dir
-/home/kiwi/documents/cpp/chess/build/CMakeFiles/edit_cache.dir
-/home/kiwi/documents/cpp/chess/build/CMakeFiles/rebuild_cache.dir
+/home/jwehrung/Documents/code/perso/chess/build/CMakeFiles/testPositionArray.exe.dir
+/home/jwehrung/Documents/code/perso/chess/build/CMakeFiles/edit_cache.dir
+/home/jwehrung/Documents/code/perso/chess/build/CMakeFiles/rebuild_cache.dir

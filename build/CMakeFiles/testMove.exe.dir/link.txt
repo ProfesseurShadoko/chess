@@ -1,0 +1,1 @@
+/usr/bin/g++ -g -rdynamic CMakeFiles/testMove.exe.dir/app/testMove.cpp.o CMakeFiles/testMove.exe.dir/src/base_classes/positionBase.cpp.o CMakeFiles/testMove.exe.dir/src/base_classes/positionStructureBase.cpp.o CMakeFiles/testMove.exe.dir/src/positionAsArray.cpp.o -o /home/jwehrung/Documents/code/perso/chess/bin/testMove.exe 
