@@ -478,7 +478,7 @@ class Move {
         /**
          * @brief Converts the move to a string in UCI format. E.g., "e2e4", "e7e8q".
          */
-        std::string toString() {
+        std::string toString() const {
             // Returns move in UCI format, e.g., "e2e4", "e7e8q"
             auto squareToStr = [](Square sq) -> std::string {
                 char file = 'a' + getCol(sq);

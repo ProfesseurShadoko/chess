@@ -146,46 +146,12 @@ int main() {
     // !-- Using Perft --! //
     // ------------------- //
 
-    test = Test("Perft from initial position");
-    position.fromFEN(BoardUI::startpos);
-    test.check("Perft startpos depth 1", position.perft(1), 20);
-    test.check("Perft startpos depth 2", position.perft(2), 400);
-    test.check("Perft startpos depth 3", position.perft(3), 8902);
-    test.check("Perft startpos depth 4", position.perft(4), 197281);
-    //test.check("Perft startpos depth 5", position.perft(5), 4865609); // ok too
-    test.complete();
+    position.testPerft();
 
-    test = Test("Perft from Kiwipete position");
-    position.fromFEN("r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/2N2Q1p/PPPBBPPP/R3K2R w KQkq - 0 1");
-    test.check("Perft Kiwipete depth 1", position.perft(1), 48);
-    test.check("Perft Kiwipete depth 2", position.perft(2), 2039);
-    //test.check("Perft Kiwipete depth 3", position.perft(3), 97862);
-    //test.check("Perft Kiwipete depth 4", position.perft(4), 4085603);
-    test.complete();
 
-    test = Test("Perft from position with en passant");
-    position.fromFEN("8/2p5/3p4/KP5r/1R3p1k/8/4P1P1/8 w - - 0 1");
-    test.check("Perft en passant depth 1", position.perft(1), 14);
-    test.check("Perft en passant depth 2", position.perft(2), 191);
-    test.check("Perft en passant depth 3", position.perft(3), 2812);
-    test.check("Perft en passant depth 4", position.perft(4), 43238);
-    test.complete();
     
-    test = Test("Perft from position with checkmates");
-    position.fromFEN("r2q1rk1/pP1p2pp/Q4n2/bbp1p3/Np6/1B3NBn/pPPP1PPP/R3K2R b KQ - 0 1");
-    test.check("Perft checkmates depth 1", position.perft(1), 6);
-    test.check("Perft checkmates depth 2", position.perft(2), 264);
-    test.check("Perft checkmates depth 3", position.perft(3), 9467);
-    //test.check("Perft checkmates depth 4", position.perft(4), 422333);
-    test.complete();
-
-    test = Test("Perft from position with idk");
-    position.fromFEN("rnbq1k1r/pp1Pbppp/2p5/8/2B5/8/PPP1NnPP/RNBQK2R w KQ - 1 8");
-    test.check("Perft idk depth 1", position.perft(1), 44);
-    test.check("Perft idk depth 2", position.perft(2), 1486);
-    test.check("Perft idk depth 3", position.perft(3), 62379);
-    test.check("Perft idk depth 4", position.perft(4), 2103487);
-    test.complete();
+        
+    
 
     return 0;
 }

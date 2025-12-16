@@ -242,8 +242,8 @@ class PositionBase {
          * @return The number of possible positions.
          */
         uint64_t perft(int depth) {
-            if (depth == 0) {
-                return 1;
+            if (depth == 1) {
+                return getLegalMoves().size();
             }
 
             uint64_t nodes = 0;
@@ -255,6 +255,8 @@ class PositionBase {
             }
             return nodes;
         }
+
+        void testPerft();
 
 
         // ------------------ //

@@ -131,17 +131,52 @@ std::vector<Move> MoveGeneratorForArray::getPseudoLegalMoves(const PosStructAsAr
                 if (square % 8 != 0) { // not on a-file
                     Piece targetPiece = position.getPieceAt(square + diagonalLeft);
                     if (getFigure(targetPiece) != Figure::EMPTY && getColor(targetPiece) != sideToMove) {
-                        moves.push_back(
-                            Move(square, square + diagonalLeft, piece, targetPiece)
-                        );
+
+                        // check wether we reach promotion rank
+                        if (getRow(square + diagonalLeft) != (sideToMove == Color::WHITE ? 7 : 0)) {
+                            moves.push_back(
+                                Move(square, square + diagonalLeft, piece, targetPiece)
+                            );
+                        } else {
+                            // promotion capture moves
+                            moves.push_back(
+                                Move(square, square + diagonalLeft, piece, targetPiece, makePiece(sideToMove, Figure::QUEEN))
+                            );
+                            moves.push_back(
+                                Move(square, square + diagonalLeft, piece, targetPiece, makePiece(sideToMove, Figure::ROOK))
+                            );
+                            moves.push_back(
+                                Move(square, square + diagonalLeft, piece, targetPiece, makePiece(sideToMove, Figure::BISHOP))
+                            );
+                            moves.push_back(
+                                Move(square, square + diagonalLeft, piece, targetPiece, makePiece(sideToMove, Figure::KNIGHT))
+                            );
+                        }
                     }
                 }
                 if (square % 8 != 7) { // not on h-file
                     Piece targetPiece = position.getPieceAt(square + diagonalRight);
                     if (getFigure(targetPiece) != Figure::EMPTY && getColor(targetPiece) != sideToMove) {
-                        moves.push_back(
-                            Move(square, square + diagonalRight, piece, targetPiece)
-                        );
+                        // check wether we reach promotion rank
+                        if (getRow(square + diagonalRight) != (sideToMove == Color::WHITE ? 7 : 0)) {
+                            moves.push_back(
+                                Move(square, square + diagonalRight, piece, targetPiece)
+                            );
+                        } else {
+                            // promotion capture moves
+                            moves.push_back(
+                                Move(square, square + diagonalRight, piece, targetPiece, makePiece(sideToMove, Figure::QUEEN))
+                            );
+                            moves.push_back(
+                                Move(square, square + diagonalRight, piece, targetPiece, makePiece(sideToMove, Figure::ROOK))
+                            );
+                            moves.push_back(
+                                Move(square, square + diagonalRight, piece, targetPiece, makePiece(sideToMove, Figure::BISHOP))
+                            );
+                            moves.push_back(
+                                Move(square, square + diagonalRight, piece, targetPiece, makePiece(sideToMove, Figure::KNIGHT))
+                            );  
+                        }
                     }
                 }
 

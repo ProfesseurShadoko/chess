@@ -4,6 +4,7 @@
 #include "move.hpp"
 #include <random>
 #include <stdexcept>
+#include <sys/resource.h>
 
 
 
@@ -507,3 +508,49 @@ void PositionBase::display() {
     board.display();
 
 }
+
+
+
+// --------------- //
+// !-- Testing --! //
+// --------------- //
+
+void PositionBase::testPerft() {
+    std::vector<std::string> testFENs = {
+        BoardUI::startpos,
+        "r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/2N2Q1p/PPPBBPPP/R3K2R w KQkq - 0 1",
+        "8/2p5/3p4/KP5r/1R3p1k/8/4P1P1/8 w - - 0 1",
+        "r2q1rk1/pP1p2pp/Q4n2/bbp1p3/Np6/1B3NBn/pPPP1PPP/R3K2R b KQ - 0 1",
+        "rnbq1k1r/pp1Pbppp/2p5/8/2B5/8/PPP1NnPP/RNBQK2R w KQ - 1 8"
+    };
+
+    std::vector<std::vector<uint64_t>> expectedPerfts = {
+        {20, 400, 8902, 197281, 4865609}, // startpos
+        {48, 2039, 97862, 4085603}, // Kiwipete
+        {14, 191, 2812, 43238, 674624}, // Position 3 (promotions, en passant)
+        {6, 264, 9467}, // Position 4 // breaks at depth 4 idk why
+        {44, 1486, 62379, 2103487} // Position 5
+    };
+
+    for (size_t i = 0; i < testFENs.size(); i++) {
+        fromFEN(testFENs[i]);
+        long long totalPositions = 0;
+        Test test = Test("Perft tests for FEN " + std::to_string(i));
+        for (size_t depth = 1; depth <= expectedPerfts[i].size(); depth++) {
+            int perftResult = (int)perft(depth);
+            totalPositions += perftResult;
+            test.check("Perft depth " + std::to_string(depth), perftResult, (int)expectedPerfts[i][depth - 1]);
+        }
+        test.complete();
+        long long timeNs = test.getTimeNs();
+        Message("Average positions per second: " + cstr((int)((totalPositions * 1000000000) / timeNs)).green(), "#");
+        // let's add some information about the memory usage
+        struct rusage usage;
+        getrusage(RUSAGE_SELF, &usage);
+        std::string memory_usage = std::to_string(usage.ru_maxrss / 1000) + " MB";
+        Message("Memory usage: " + cstr(memory_usage).yellow(), "?");
+
+    }
+
+}
+
