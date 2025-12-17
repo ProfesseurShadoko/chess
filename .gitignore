@@ -3,3 +3,6 @@ bin/*
 
 # ignore what is in the trash
 trash/*
+
+# ignore build files
+build/*
