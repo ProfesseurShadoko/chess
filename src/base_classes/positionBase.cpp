@@ -77,8 +77,8 @@ std::string PositionBase::toFEN() const {
     if (castlingRights & 0b0010) board.castlingRights += 'k'; // black kingside
     if (castlingRights & 0b0001) board.castlingRights += 'q'; // black queenside
     if (board.castlingRights.empty()) board.castlingRights = "-"; // if no castling rights, set to "-"
-    board.enPassantTarget = (enPassantSquare == 64) ? "-" :
-        std::string(1, 'a' + getCol(enPassantSquare)) + std::to_string(getRow(enPassantSquare) + 1); // convert square index to algebraic notation
+    board.enPassantTarget = (enPassantSquare == 64) ? "-" : getStringFromSquare(enPassantSquare);
+
     board.halfMoveClock = halfmoveClock;
     board.fullMoveClock = fullmoveClock;
 
@@ -258,7 +258,7 @@ void PositionBase::play(const Move& move, bool definitive) {
     // update en passant square
     enPassantSquare = 64; // reset en passant square
     if (move.isDoubleAdvance()) {
-        enPassantSquare = move.getEnPassantSquare();
+        enPassantSquare = getNewEnPassantSquare(move);
     }
 
     // switch active color

@@ -52,7 +52,7 @@ std::vector<Move> MoveGeneratorForArray::generateIterativeMovesForPiece(const Po
             if (targetSquare >= 64) break;
 
             // 2. Check that the row of target square is at most different by 2 columns
-            int column_change = std::abs(static_cast<int>(getCol(targetSquare) - getCol(previousSquare)));
+            int column_change = std::abs((int)getCol(targetSquare) - (int)getCol(previousSquare));
             if (column_change > 2) break;
 
             previousSquare = targetSquare;
@@ -216,7 +216,7 @@ std::vector<Move> MoveGeneratorForArray::getPseudoLegalMoves(const PosStructAsAr
         leftSquare += direction;
         rightSquare += direction;
         // check with columns that we do not wrap around the board
-        if (std::abs(static_cast<int>(getCol(leftSquare) - getCol(enPassantSquare))) == 1) {
+        if (std::abs((int)getCol(leftSquare) - (int)getCol(enPassantSquare)) == 1) {
             Piece leftPiece = position.getPieceAt(leftSquare);
             if (getFigure(leftPiece) == Figure::PAWN && getColor(leftPiece) == sideToMove) {
                 moves.push_back(
@@ -224,7 +224,7 @@ std::vector<Move> MoveGeneratorForArray::getPseudoLegalMoves(const PosStructAsAr
                 );
             }
         }
-        if (std::abs(static_cast<int>(getCol(rightSquare) - getCol(enPassantSquare))) == 1) {
+        if (std::abs((int)getCol(rightSquare) - (int)getCol(enPassantSquare)) == 1) {
             Piece rightPiece = position.getPieceAt(rightSquare);
             if (getFigure(rightPiece) == Figure::PAWN && getColor(rightPiece) == sideToMove) {
                 moves.push_back(
